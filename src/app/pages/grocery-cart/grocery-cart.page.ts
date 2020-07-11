@@ -360,6 +360,7 @@ export class GroceryCartPage implements OnInit {
       useLocale: true,
       maxResults: 5,
     };
+    console.log("this.FindAddress", this.FindAddress);
     this.nativeGeocoder
       .forwardGeocode(this.FindAddress, options)
       .then((result: NativeGeocoderResult[]) => {
@@ -379,5 +380,10 @@ export class GroceryCartPage implements OnInit {
         };
       })
       .catch((error: any) => console.log(error));
+  }
+
+  storeDetail(id) {
+    this.gpi.itemId = id;
+    this.nav.navigateForward("/product-detail");
   }
 }

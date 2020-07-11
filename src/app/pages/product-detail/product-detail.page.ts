@@ -27,7 +27,7 @@ export class ProductDetailPage implements OnInit {
   ionViewWillEnter() {
     this.util.startLoad();
 
-    this.cartData = JSON.parse(localStorage.getItem("store-detail"));
+    this.cartData = JSON.parse(localStorage.getItem("store-detail")) || [];
 
     this.api.getDataWithToken("groceryItemDetail/" + this.gpi.itemId).subscribe(
       (res: any) => {

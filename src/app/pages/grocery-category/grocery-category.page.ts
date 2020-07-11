@@ -36,6 +36,6 @@ export class GroceryCategoryPage implements OnInit {
   ngOnInit() { }
   categoryDetail(id) {
     this.gpi.catId = id;
-    this.nav.navigateForward("store");
+    this.nav.navigateForward("/category-detail");
   }
 }

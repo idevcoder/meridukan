@@ -1,179 +1,95 @@
 <ion-header no-border>
-    <ion-toolbar>
-        <ion-buttons slot="end">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <div class="locationContent">
-            <img src="../../assets/image/location.png" />
-            <div class="textContent">
-                <h2 class="location">
-                    {{userAddress?.address_type ? userAddress?.address_type: 'Loading...'}}
-                </h2>
-                <p class="address">{{userAddress?.soc_name}} {{userAddress?.street}} {{userAddress?.city}}
-                    {{userAddress?.zipcode}}
-                </p>
-            </div>
-        </div>
-    </ion-toolbar>
-    <ion-searchbar placeholder="Search for Restaurant and dishes" clearIcon="string" [(ngModel)]="term"></ion-searchbar>
-    <ion-button *ngIf="sellProduct != 2" class="trans-btn mode_btn" [class.active]="isfood==true" (click)="isfood=true">
-        {{"home_page.food" | translate}}</ion-button>
-    <ion-button *ngIf="sellProduct != 1" class="trans-btn mode_btn" [class.active]="isfood==false"
-        (click)="isfood=false">
-        {{"home_page.grocery" | translate}}</ion-button>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+        <ion-button (click)="cart()">
+        <ion-icon
+            src="../../../assets/icon-image/shopping-cart.svg"
+        ></ion-icon>
+        </ion-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div class="locationContent">
+      <img src="../../assets/image/location.png" />
+      <div class="textContent">
+        <h2 class="location">
+          {{userAddress?.address_type ? userAddress?.address_type:
+          'Loading...'}}
+        </h2>
+        <p class="address">
+          {{userAddress?.soc_name}} {{userAddress?.street}}
+          {{userAddress?.city}} {{userAddress?.zipcode}}
+        </p>
+      </div>
+    </div>
+  </ion-toolbar>
+  <ion-searchbar
+    placeholder="Search for Products"
+    clearIcon="close-circle"
+    [(ngModel)]="term"
+  ></ion-searchbar>
 </ion-header>
 
-<ion-content *ngIf="isfood" class="food_content">
-
-    <ion-slides class="margin-top-18" pager="false" [options]="slideOpts">
-        <ion-slide *ngFor="let i of banners" [ngStyle]="{'maxWidth': innerWidth - 80+'px'}">
-            <img [src]="i?.imagePath+i?.image">
-            <h2 *ngIf="i?.title?.length != 0">{{i?.title}}</h2>
-        </ion-slide>
-    </ion-slides>
-
-    <div class="main_div">
-        <p class="ion-margin-horizontal filter_p">
-            {{data?.totalShop}} {{"home_page.restaurant" | translate}}
-            <span class="ion-float-right" (click)="presentModal()">
-                <img src="assets/image/controls.png" />{{"home_page.filter" | translate}}</span>
-        </p>
-
-        <p class="no_data_p" *ngIf="data?.shop?.length==0">{{"home_page.no_data" | translate}}</p>
-
-        <div class="offer_div">
-            <div class="img_div" *ngFor="let item of data?.shop |filter:term" (click)="resturantDetail(item?.id)">
-                <img [src]="item.imagePath + item.image" />
-                <div class="offer">
-                    <span>{{"home_page.offer" | translate}}</span>
-                </div>
-                <p class="discount_p">
-                    {{item?.name}}
-                </p>
-            </div>
-        </div>
-
-        <div class="feature_row">
-            <div class="first_div" *ngFor="let item of staticData.feature" (click)="feature(item.type)">
-                <div class="img_row">
-                    <img [src]="item?.image" />
-                </div>
-                <div class="detail_div">
-                    <p class="tittle">{{"home_page."+item?.text | translate}}</p>
-                </div>
-            </div>
-        </div>
-
-        <ng-container *ngFor="let item of data?.shop |filter:term">
-            <div class="card_div" (click)="resturantDetail(item?.id)">
-                <div class="div_image">
-                    <img [src]="item?.imagePath + item?.image" />
-                </div>
-                <div class="data_div">
-                    <ion-button class="btn_div ion-float-right ion-text-capitalize" *ngIf="item?.exclusive">
-                        {{btnType}}
-                    </ion-button>
-                    <h3 class="item">{{item?.name}}</h3>
-                    <p class="type">{{item?.itemNames}}</p>
-
-                    <div class="rate">
-                        <span>
-                            <ion-icon name="star"></ion-icon>{{item?.rate}}
-                        </span>
-                        <span class="point_span">
-                            <div class="point"></div>
-                            {{item?.min}} {{"home_page.min" | translate}}
-                        </span>
-                        <span class="point_span">
-                            <div class="point"></div>
-                            {{currency}}{{item?.avarage_plate_price}} {{"home_page.for_two" | translate}}
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </ng-container>
-
-        <div class="slider_div">
-            <div class="menu_div" *ngFor="let item of data?.category |filter:term" (click)="categoryData(item?.id)">
-                <img [src]="item.imagePath + item?.image" />
-                <p class="img_type">{{item?.name}}</p>
-            </div>
-        </div>
-        <p class="heading">{{"home_page.popular_this_week" | translate}}</p>
-        <p *ngIf="data?.shop?.length==0" class="no_data_p">{{"home_page.no_data" | translate}}</p>
-        <ng-container *ngFor="let item of data?.shop |filter:term ; let i=index">
-            <div class="card_div" (click)="resturantDetail(item?.id)">
-                <div class="div_image">
-                    <img [src]="item?.imagePath + item?.image" />
-                </div>
-                <div class="data_div">
-                    <ion-button class="btn_div ion-float-right ion-text-capitalize" *ngIf="item?.exclusive">
-                        {{btnType}}
-                    </ion-button>
-                    <h3 class="item">{{item?.name}}</h3>
-                    <p class="type">{{item?.itemNames}}</p>
-                    <div class="rate">
-                        <span>
-                            <ion-icon name="star"></ion-icon>{{item?.rate}}
-                        </span>
-                        <span class="point_span">
-                            <div class="point"></div>
-                            {{item?.delivery_time}} {{"home_page.min" | translate}}
-                        </span>
-                        <span class="point_span">
-                            <div class="point"></div>
-                            {{currency}}{{item?.avarage_plate_price}} {{"home_page.for_two" | translate}}
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </ng-container>
-        <p class="heading">{{"home_page.pocket_friendly" | translate}}</p>
-        <p class="no_data_p" *ngIf="data?.item?.length==0">{{"home_page.no_data" | translate}}</p>
-        <div class="slider_div">
-            <div class="menu_div pocket_div_img" *ngFor="let item of data?.item |filter:term"
-                (click)="resturantDetail(item.shop_id)">
-                <img [src]="item.imagePath + item.image" />
-                <p class="img_type">{{item?.name | slice:0:18}} <span *ngIf="item.name.length >18 ">...</span></p>
-            </div>
-        </div>
-    </div>
-</ion-content>
 <ion-content class="ion-padding-bottom grocery_content" *ngIf="!isfood">
-
-    <div class="offer_div" *ngIf="grocery?.coupon?.length > 0">
-        <img [src]="grocery?.coupon[0].imagePath + grocery?.coupon[0].image">
-        <div class="detail_div">
-            <h3 class="discount">{{grocery?.coupon[0].discount}} % discount</h3>
-            <p class="text_lbl">{{grocery?.coupon[0].description}}</p>
-        </div>
+  <div class="offer_div" *ngIf="grocery?.coupon?.length > 0">
+    <img [src]="grocery?.coupon[0].imagePath + grocery?.coupon[0].image" />
+    <div class="detail_div">
+      <h3 class="discount">{{grocery?.coupon[0].discount}} % discount</h3>
+      <p class="text_lbl">{{grocery?.coupon[0].description}}</p>
     </div>
-    <h3 class="main_lbl">{{"home_page.store" | translate}}
-        <ion-button class="trans-btn more_btn" (click)="storeList()">{{"home_page.view_more" | translate}}</ion-button>
-    </h3>
-    <div class="store_div">
-        <div class="product_div" *ngFor="let item of grocery?.Store" (click)="storeDetail(item?.id)">
+  </div>
 
-            <div class="simg_div">
-                <img [src]="item?.imagePath + item?.image">
-            </div>
-            <h3 class="name">{{item?.name}}</h3>
-
-            <p class="away_lbl">
-                <ion-icon src="../../../assets/icon-image/gro_pin.svg"></ion-icon>
-                {{item?.away}} km
-            </p>
-        </div>
+  <h3 class="main_lbl">
+    {{"store_detail.category" | translate}} {{data.currency}}
+    <ion-button class="trans-btn more_btn" (click)="viewMoreCategory()"
+      >View All
+    </ion-button>
+  </h3>
+  <div class="categories_div">
+    <div
+      class="product_div"
+      *ngFor="let item of data.category | filter:term"
+      (click)="subcategory(item?.id)"
+    >
+      <img [src]="item?.imagePath + item?.image" />
+      <h3 class="name">{{item?.name}}</h3>
     </div>
-
-    <h3 class="main_lbl">{{"home_page.categories" | translate}}
-        <ion-button class="trans-btn more_btn" (click)="getCategory()">{{"home_page.view_more" | translate}}
-        </ion-button>
-    </h3>
-    <div class="categories_div">
-        <div class="product_div" *ngFor="let item of grocery?.category" (click)="subcategory(item?.id)">
-            <img [src]="item?.imagePath + item?.image">
-            <h3 class="name">{{item?.name}}</h3>
+  </div>
+  
+  <h3 class="main_lbl">
+    {{"store_detail.product" | translate}}
+    <ion-button class="trans-btn more_btn" (click)="viewMore()"
+      >{{"store_detail.view_more" | translate}}
+    </ion-button>
+  </h3>
+  <div class="trending_div">
+    <div class="product_div" *ngFor="let item of data?.product | filter:term">
+      <div class="img_div" (click)="storeDetail(item?.id)">
+        <img [src]="item?.imagePath + item?.image" />
+      </div>
+      <h3 class="name">
+        {{item?.name |slice:0:20}}
+        <span *ngIf="item?.name?.length >20">..</span>
+      </h3>
+      <p class="qunty vote">
+        {{item?.weight}}
+        <!--     {{item?.categoryName}} -->
+      </p>
+      <div class="btn_div">
+        <div class="qty_div">
+          <ion-button class="add_btn trans-btn" (click)="remove(item)">
+            <ion-icon src="../../../assets/icon-image/minus-sign.svg">
+            </ion-icon>
+          </ion-button>
+          <p class="qty_p">
+            {{item?.qty}}
+          </p>
+          <ion-button class="add_btn trans-btn" (click)="AddCart(item)">
+            <ion-icon src="../../../assets/icon-image/plus-signs.svg">
+            </ion-icon>
+          </ion-button>
         </div>
+        <p class="price">{{currency}}{{item?.sell_price}}</p>
+      </div>
     </div>
+  </div>
 </ion-content>

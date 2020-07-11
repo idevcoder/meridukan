@@ -36,20 +36,15 @@ export class AppComponent {
       url: "/promocode/menu",
       icon: "assets/icon-image/coupon.svg",
     },
-    {
-      title: "Invite Friends",
-      url: "/invite-friends",
-      icon: "assets/icon-image/invite-user.svg",
-    },
-    {
-      title: "Order History",
-      url: "/order-history",
-      icon: "assets/icon-image/chef-hat.svg",
-    },
+    // {
+    //   title: "Invite Friends",
+    //   url: "/invite-friends",
+    //   icon: "assets/icon-image/invite-user.svg",
+    // },
     {
       title: "Grocery Order",
       url: "/grocery-history",
-      icon: "assets/icon-image/Twotone.svg",
+      icon: "assets/icon-image/grocery-icon.svg",
     },
   ];
   userData: any;

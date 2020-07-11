@@ -21,7 +21,7 @@
         <h3 [ngClass]="cash==1 ? 'tittle' : 'cash_heading' ">{{"pay_method.cash" | translate}}</h3>
       </div>
     </div>
-    <div class="online" [ngStyle]="{'background-color':online===1? 'var(--ion-color-green)'
+    <div class="online" *ngIf="isOnlinePayment" [ngStyle]="{'background-color':online===1? 'var(--ion-color-green)'
     : 'var(--ion-color-white)' }" (click)="online=1 ;cash=0">
       <div class="img_div">
         <img [src]="online==1 ? ' assets/image/online-pay.png' : 'assets/image/credit-cards.png'" />
@@ -36,13 +36,6 @@
       <div class="img_div">
         <img src="../../../assets/image/Razorpay_logo.svg" class="pay_img" />
         <h3 [ngClass]="payment_type==='RAZOR' ? 'tittle' : 'cash_heading' ">{{"pay_method.razor_pay" | translate}}</h3>
-      </div>
-    </div>
-    <div class="cash" (click)="payment_type='PAYPAL'"
-      [ngStyle]="{'background-color':payment_type==='PAYPAL'? 'var(--ion-color-green)': 'var(--ion-color-white)' }">
-      <div class="img_div">
-        <img src="../../../assets/image/paypal_image.png" class="pay_img paypal_img" />
-        <h3 [ngClass]="payment_type==='PAYPAL' ? 'tittle' : 'cash_heading' ">{{"pay_method.PayPal" | translate}}</h3>
       </div>
     </div>
   </div>

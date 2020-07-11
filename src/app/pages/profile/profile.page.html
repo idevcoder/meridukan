@@ -7,10 +7,7 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
     </ion-toolbar>
-    <ion-button class="edit_btn ion-text-capitalize" (click)="editCoverimg()">
-        <ion-icon src="assets/icon-image/camera-icon.svg"></ion-icon>
-        {{"profile_page.edit" | translate}}
-    </ion-button>
+
     <div class="profile-image">
         <img [src]="imgProfile">
         <div class="active" (click)="chageProfileOption()">
@@ -20,17 +17,10 @@
     <div class="name_div ion-text-center">
         <h3 class="name">{{userName}}</h3>
         <p class="location">
-            <ion-icon src="assets/icon-image/location.svg"></ion-icon>
-            {{userLocation}}
         </p>
     </div>
     <div class="btn_div">
-        <ion-button class="ion-text-capitalize" (click)="segment = 1" [ngClass]="segment==1 ? 'active' :'segment_btn'">
-            {{"profile_page.segment.reviews" | translate}}
-        </ion-button>
-        <ion-button class="ion-text-capitalize" (click)="segment = 2" [ngClass]="segment==2 ? 'active' :'segment_btn'">
-            {{"profile_page.segment.photos" | translate}}
-        </ion-button>
+
         <ion-button class="ion-text-capitalize" (click)="segment = 3" [ngClass]="segment==3 ? 'active' :'segment_btn'">
             {{"profile_page.segment.edit_profile" | translate}}
         </ion-button>
@@ -145,7 +135,7 @@
             </ion-label>
             <ion-toggle slot="end" checked [(ngModel)]="userSetting.enable_call" [checked]="userSetting?.enable_call"></ion-toggle>
         </ion-item>
-        <ion-item lines="none" class="setting_item">
+        <!-- <ion-item lines="none" class="setting_item">
             <ion-label>
                 <h3 class="tittle">{{"profile_page.language" | translate}}</h3>
             </ion-label>
@@ -153,7 +143,7 @@
                 <ion-select-option value="en">{{"profile_page.english" | translate}}</ion-select-option>
                 <ion-select-option value="ar">{{"profile_page.arabic" | translate}}</ion-select-option>
             </ion-select>
-        </ion-item>
+        </ion-item> -->
         <ion-item lines="none" class="setting_item">
             <ion-label>
                 <p class="address">

@@ -15,11 +15,12 @@
   </ion-toolbar>
 
   <div class="search_div">
-    <ion-searchbar placeholder='{{"store_detail.searchPlace" | translate}}' clearIcon="string" [(ngModel)]="term">
+    <ion-searchbar placeholder='{{"store_detail.searchPlace" | translate}}' clearIcon="close-circle" [(ngModel)]="term">
     </ion-searchbar>
   </div>
 </ion-header>
 <ion-content class="ion-padding-bottom">
+  <h3 *ngIf="data.length === 0" class="text-center">No product found</h3>
   <ng-container *ngFor="let item of data  | filter:term">
     <h3 class="main_lbl">{{item?.name}}
       <!-- <ion-button class="trans-btn more_btn" (click)="viewMore()">View more

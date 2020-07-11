@@ -39,7 +39,7 @@
       <div class="ion-margin-horizontal">
         <ion-searchbar
           placeholder="{{'store_detail.searchPlace' | translate}}"
-          clearIcon="string"
+          clearIcon="close-circle"
           [(ngModel)]="term"
         >
         </ion-searchbar>
@@ -65,11 +65,6 @@
       <p class="qunty vote">
         {{item?.weight}}
         <!--     {{item?.categoryName}} -->
-        <span>
-          <ion-icon name="star"></ion-icon>{{item?.rate}} {{"store_detail.votes"
-          | translate}}
-          <!-- {{'restaurant_detail_page.votes' | translate}} -->
-        </span>
       </p>
       <div class="btn_div">
         <div class="qty_div">

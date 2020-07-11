@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ["./profile.page.scss"],
 })
 export class ProfilePage implements OnInit {
-  public segment: number = 1;
+  public segment: number = 3;
   public subsegment: number = 1;
   userDetail: any = {};
   err: any = {};
