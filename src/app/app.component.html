@@ -1,0 +1,54 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" type="overlay">
+            <ion-content>
+                <div class="first_div ion-margin-horizontal">
+                    <ion-button class="trans-btn back-btn ion-float-right" (click)="close()">
+                        <ion-icon name="ios-arrow-back"></ion-icon>
+                    </ion-button>
+                    <ion-button class="trans-btn edit_btn ion-float-right" (click)="profile()">
+                        <ion-icon src="assets/icon-image/edit.svg" class="ion-float-right"></ion-icon>
+                    </ion-button>
+                </div>
+                <div class="header_div ion-margin-horizontal">
+                    <div class="img_div">
+
+                        <img [src]="userData?.imagePath + userData?.image">
+                    </div>
+                    <div class="name_div">
+                        <h3 class="name">{{userData?.name}}</h3>
+                        <p class="location">
+                            <ion-icon src="assets/icon-image/location.svg"></ion-icon> {{userData?.location}}
+                        </p>
+                    </div>
+                </div>
+                <ion-list>
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                        <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [routerLinkActive]="['active','']" lines="none" detail="false" detail="false">
+                            <ion-icon slot="start" [src]="p.icon"></ion-icon>
+                            <ion-label class="lbl_tittle">
+                                {{'side_menu.'+p.title | translate}}
+                            </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+
+            <ion-footer>
+                <div class="footer_div">
+                    <ion-label class="ion-float-right" (click)="Setting()">
+                        <h3>
+                            <ion-icon src="../assets/icon-image/setting.svg"></ion-icon>{{'side_menu.Setting' | translate}}
+                        </h3>
+                    </ion-label>
+                    <ion-label (click)="logout()">
+                        <h3>
+                            <ion-icon src="assets/icon-image/logout.svg"></ion-icon>{{'side_menu.Logout' | translate}}
+                        </h3>
+                    </ion-label>
+                </div>
+            </ion-footer>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

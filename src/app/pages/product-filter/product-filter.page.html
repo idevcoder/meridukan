@@ -1,0 +1,8 @@
+<ion-content class="ion-padding">
+  <div class="filter_lbl" [ngClass]="{active: sortType =='lowtohigh'}" (click)="dismiss('lowtohigh')">
+    Price : Low to High
+  </div>
+  <div class="filter_lbl" [ngClass]="{active: sortType =='hightolow'}" (click)="dismiss('hightolow')">
+    Price : High to Low
+  </div>
+</ion-content>

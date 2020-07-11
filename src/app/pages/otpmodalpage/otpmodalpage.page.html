@@ -1,0 +1,17 @@
+<ion-content>
+    <div class="main_div ion-margin-horizontal">
+        <p class="info_p">
+            <!-- {{ "otp_modal.enter_code" | translate }} -->
+            ENTER CODE
+        </p>
+        <ion-input placeholder="OTP" [(ngModel)]="data.order_otp" autofocus="true" type="tel"></ion-input>
+        <p class="err" *ngIf="err?.otp">{{err?.otp}}</p>
+    </div>
+
+</ion-content>
+<ion-footer>
+    <ion-button class="otp_btn" (click)="checkOtp()">
+        <!--   {{ "otp_modal.chk_otp" | translate }} -->
+        ENTER
+    </ion-button>
+</ion-footer>

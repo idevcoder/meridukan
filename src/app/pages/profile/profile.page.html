@@ -1,0 +1,197 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="start_btn">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="end_btn">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-button class="edit_btn ion-text-capitalize" (click)="editCoverimg()">
+        <ion-icon src="assets/icon-image/camera-icon.svg"></ion-icon>
+        {{"profile_page.edit" | translate}}
+    </ion-button>
+    <div class="profile-image">
+        <img [src]="imgProfile">
+        <div class="active" (click)="chageProfileOption()">
+            <ion-icon src="assets/icon-image/cam-white.svg"></ion-icon>
+        </div>
+    </div>
+    <div class="name_div ion-text-center">
+        <h3 class="name">{{userName}}</h3>
+        <p class="location">
+            <ion-icon src="assets/icon-image/location.svg"></ion-icon>
+            {{userLocation}}
+        </p>
+    </div>
+    <div class="btn_div">
+        <ion-button class="ion-text-capitalize" (click)="segment = 1" [ngClass]="segment==1 ? 'active' :'segment_btn'">
+            {{"profile_page.segment.reviews" | translate}}
+        </ion-button>
+        <ion-button class="ion-text-capitalize" (click)="segment = 2" [ngClass]="segment==2 ? 'active' :'segment_btn'">
+            {{"profile_page.segment.photos" | translate}}
+        </ion-button>
+        <ion-button class="ion-text-capitalize" (click)="segment = 3" [ngClass]="segment==3 ? 'active' :'segment_btn'">
+            {{"profile_page.segment.edit_profile" | translate}}
+        </ion-button>
+        <ion-button class="ion-text-capitalize" (click)="segment = 4" [ngClass]="segment==4 ? 'active' :'segment_btn'">
+            {{"profile_page.segment.setting" | translate}}
+        </ion-button>
+        <ion-button class="ion-text-capitalize" (click)="segment = 5" [ngClass]="segment==5 ? 'active' :'segment_btn'">
+            {{"profile_page.segment.change_password" | translate}}
+        </ion-button>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="segment==1" class="review_div">
+        <!-- <p *ngIf="data?.photos?.length==0" class="no_data_p">
+            {{"profile_page.no_data" | translate}}</p> -->
+
+        <ion-row>
+            <ion-col size="12" class="ion-no-padding">
+                <div class="segment">
+                    <ion-button class="ion-text-capitalize" (click)="subsegment = 1" [ngClass]="subsegment==1 ? 'active' :'segment_btn'">
+                        Grocery
+                    </ion-button>
+                    <ion-button class="ion-text-capitalize" (click)="subsegment = 2" [ngClass]="subsegment==2 ? 'active' :'segment_btn'">
+                        Food
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+        <div *ngIf="subsegment==1">
+            <ion-item class="review_item" *ngFor="let item of data?.grocery_review" lines="none">
+                <ion-avatar slot="start">
+                    <img [src]="item?.customer?.imagePath + item?.customer?.image" />
+                </ion-avatar>
+                <ion-label>
+                    <ion-icon [class]="item.rate >= 5 ? 'first_icon hydrated ion-float-right' : 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                    <ion-icon [class]="item.rate >= 4 ? 'first_icon hydrated ion-float-right' : 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                    <ion-icon [class]="item.rate >= 3 ? 'first_icon hydrated ion-float-right' : 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                    <ion-icon [class]="item.rate >= 2 ? 'first_icon hydrated ion-float-right' : 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                    <ion-icon [class]="item.rate >= 1 ? 'first_icon hydrated ion-float-right' : 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                    <h3 class="name">{{item?.shopName}}</h3>
+
+                    <h3 class="ago">{{item?.created_at}}</h3>
+                    <p class="detail">{{item?.message}}</p>
+                </ion-label>
+            </ion-item>
+        </div>
+        <div *ngIf="subsegment==2">
+            <p *ngIf="data?.photos?.length==0" class="no_data_p">
+                {{"profile_page.no_data" | translate}}
+            </p>
+        </div>
+
+    </div>
+
+    <div *ngIf="segment==2" class="photo_div ion-margin-start">
+        <p *ngIf="data?.photos?.length==0" class="no_data_p">
+            {{"profile_page.no_data" | translate}}</p>
+        <div class="masonry-group">
+            <img class="masonry-item" [src]="item.imagePath + item.image" *ngFor="let item of data?.photos" />
+        </div>
+    </div>
+
+    <div *ngIf="segment==3" class="profile_div">
+        <ion-item class="profile_item" lines="none">
+            <ion-label class="tittle" position="stacked" mode="md">
+                {{"profile_page.placeholder.name" | translate}}
+            </ion-label>
+            <ion-input [(ngModel)]="userDetail.name" class="data" type="text"></ion-input>
+        </ion-item>
+        <p class="err" *ngIf="err?.name">{{err?.name}}*</p>
+        <ion-item class="profile_item" lines="none">
+            <ion-label class="tittle" position="stacked" mode="md">
+                {{"profile_page.placeholder.email" | translate}}
+            </ion-label>
+            <ion-input [disabled]="true" [(ngModel)]="userDetail.email" class="data" type="email"></ion-input>
+        </ion-item>
+        <p class="err" *ngIf="err?.email">{{err?.email}}*</p>
+        <ion-item class="profile_item" lines="none">
+            <ion-label class="tittle" position="stacked" mode="md">
+                {{"profile_page.placeholder.phone_number" | translate}}
+            </ion-label>
+            <ion-input [(ngModel)]="userDetail.phone" class="data" type="tel"></ion-input>
+        </ion-item>
+        <p class="err" *ngIf="err?.phone">{{err?.phone}}*</p>
+        <ion-item class="profile_item" lines="none">
+            <ion-label class="tittle" position="stacked" mode="md">
+                {{"profile_page.placeholder.location" | translate}}
+            </ion-label>
+            <ion-input [(ngModel)]="userDetail.location" class="data" type="text"></ion-input>
+        </ion-item>
+        <p class="err" *ngIf="err?.location">{{err?.location}}*</p>
+    </div>
+
+    <div *ngIf="segment==4" class="setting_div">
+        <ion-item lines="none" class="setting_item">
+            <ion-label slot="start">
+                <h3 class="tittle">{{"profile_page.notification" | translate}}</h3>
+            </ion-label>
+            <ion-toggle slot="end" checked [(ngModel)]="userSetting.enable_notification" [checked]="userSetting.enable_notification"></ion-toggle>
+        </ion-item>
+
+        <ion-item lines="none" class="setting_item">
+            <ion-label slot="start">
+                <h3 class="tittle">{{"profile_page.location" | translate}}</h3>
+            </ion-label>
+            <ion-toggle slot="end" checked [(ngModel)]="userSetting.enable_location" [checked]="userSetting?.enable_location"></ion-toggle>
+        </ion-item>
+        <ion-item lines="none" class="setting_item">
+            <ion-label slot="start">
+                <h3 class="tittle">{{"profile_page.call" | translate}}</h3>
+            </ion-label>
+            <ion-toggle slot="end" checked [(ngModel)]="userSetting.enable_call" [checked]="userSetting?.enable_call"></ion-toggle>
+        </ion-item>
+        <ion-item lines="none" class="setting_item">
+            <ion-label>
+                <h3 class="tittle">{{"profile_page.language" | translate}}</h3>
+            </ion-label>
+            <ion-select okText="{{'profile_page.okay_text' | translate}}" cancelText="{{'profile_page.cancel_text' | translate}}" (ionChange)="onLanguageChange()" [(ngModel)]="language">
+                <ion-select-option value="en">{{"profile_page.english" | translate}}</ion-select-option>
+                <ion-select-option value="ar">{{"profile_page.arabic" | translate}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item lines="none" class="setting_item">
+            <ion-label>
+                <p class="address">
+                    {{"profile_page.default_address" | translate}}
+                    <ion-button class="trans-btn ion-float-right" (click)="changeAddress()">{{"profile_page.change" | translate}}</ion-button>
+                </p>
+                <p class="change">{{data?.userAddress?.soc_name}} {{data?.userAddress?.street}} {{data?.userAddress?.city}} {{data?.userAddress?.zipcode}}</p>
+            </ion-label>
+        </ion-item>
+    </div>
+
+    <div *ngIf="segment==5" class="profile_div">
+        <ion-item class="profile_item" lines="none">
+            <ion-label class="tittle" position="stacked" mode="md">
+                {{"profile_page.placeholder.new_password" | translate}}
+            </ion-label>
+            <ion-input class="data" type="password" [(ngModel)]="passwordData.password"></ion-input>
+        </ion-item>
+        <p class="err" *ngIf="err?.password">
+            {{err?.password}}</p>
+        <ion-item class="profile_item" lines="none">
+            <ion-label class="tittle" position="stacked" mode="md">
+                {{"profile_page.placeholder.confirm_password" | translate}}
+            </ion-label>
+            <ion-input class="data" type="password" [(ngModel)]="passwordData.confirmPassword"></ion-input>
+        </ion-item>
+        <p class="err" *ngIf="err?.confirmPassword">{{err?.confirmPassword}}</p>
+    </div>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="segment==2">
+        <ion-fab-button (click)="uploadGalleryimg()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>
+
+<ion-footer *ngIf="segment==3 || segment==4 || segment==5">
+    <ion-button class="otp_btn" (click)="editProfile()">
+        {{"profile_page.save_btn" | translate}}
+    </ion-button>
+</ion-footer>

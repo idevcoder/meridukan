@@ -1,0 +1,84 @@
+ion-content {
+  .card_div {
+    display: flex;
+    margin: 13px 16px;
+    .div_image {
+      padding-right: 10px;
+      img {
+        border-radius: 5px;
+        width: 87px;
+        height: 78px;
+      }
+    }
+    .data_div {
+      width: 70%;
+      .btn_div {
+        font-size: 8.5px;
+        font-family: "Poppins-Medium";
+        --background: var(--ion-color-green);
+        --background-activated: var(--ion-color-green);
+        --color: var(--ion-color-white);
+        height: 20px;
+        margin-right: 0px;
+        --border-radius: 2px;
+        --box-shadow: none;
+        &.trending {
+          --background: var(--ion-color-google-btn);
+          --background-activated: var(--ion-color-google-btn);
+        }
+      }
+      .btn_color {
+        --background: var(--ion-color-btn-color);
+      }
+      .item {
+        font-size: 14px;
+        color: var(--ion-color-darkBlue);
+        font-family: "Poppins-SemiBold";
+        margin-top: 4px;
+        margin-bottom: 5px;
+      }
+      .type {
+        font-size: 10.5px;
+        font-family: "Poppins-Regular";
+        color: var(--ion-color-darkgray);
+        margin-top: 0px;
+        margin-bottom: 3px;
+      }
+      .percent {
+        font-size: 10.5px;
+        font-family: "Poppins-Medium";
+        color: var(--ion-color-green);
+        margin-top: 0px;
+        margin-bottom: 3px;
+        ion-icon {
+          margin-right: 5px;
+        }
+      }
+      .rate {
+        font-size: 10.5px;
+        display: flex;
+        font-family: "Poppins-Regular";
+        color: var(--ion-color-darkgray);
+
+        ion-icon {
+          color: var(--ion-color-yellow);
+          margin-right: 5px;
+        }
+        span {
+          margin-right: 8px;
+          .point {
+            height: 6px;
+            width: 6px;
+            background-color: var(--ion-color-green);
+            border-radius: 50%;
+            margin-right: 3px;
+            align-self: center;
+          }
+        }
+        .point_span {
+          display: flex;
+        }
+      }
+    }
+  }
+}

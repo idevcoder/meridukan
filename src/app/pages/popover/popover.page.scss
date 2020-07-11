@@ -1,0 +1,32 @@
+ion-content{
+    .detail{
+        font-size: 14px;
+        color: var(--ion-color-darkBlue);
+        font-family: 'Poppins-Medium';
+         margin-bottom: 5px;
+         margin-top: 0px;
+         width: 100%;
+ }
+    .square{
+        transform: rotate(45deg);
+        height: 12px;
+        width: 13px;
+        background-color: var( --ion-color-green);
+        margin-right: 10px;
+        margin-top: 4px;
+    }
+    .main_div{
+        display: grid;
+        padding-top: 15px;
+        .p_div{
+            width: 100%;
+            display: flex;
+        }
+    }
+    .simple_div{
+        height: 20px;
+        width: 26px;
+        margin-right: 10px;
+
+    }
+}

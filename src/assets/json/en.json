@@ -1,0 +1,394 @@
+{
+  "app_name": "Meri Dukan",
+  "add_edit_address_page": {
+    "add_title": "Add Address",
+    "edit_title": "Edit Address",
+    "address_type": "Choose your Address Type",
+    "save_btn": "Save"
+  },
+  "cancel_order_alert": {
+    "title": "Cancel Order",
+    "text": "Do you want to Cancel this order",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "add_card_page": {
+    "title": "Add Card",
+    "card_number": "CARD NUMBER",
+    "expiration_date": "EXPIRATION DATE",
+    "cvv": "CVV",
+    "card_holders_name": "CARD HOLDER'S NAME",
+    "add_card": "Add card"
+  },
+  "cancel_order_page": {
+    "title": "Why do you cancel your order?"
+  },
+  "cart_page": {
+    "title": "cart",
+    "apply_coupon": "APPLY COUPON",
+    "bill_details": "Bill Details",
+    "item_total": "Item Total",
+    "total_discount": "Total Discount",
+    "restaurant_charges": "Restaurant Charges",
+    "delivery_fee": "Delivery Fee",
+    "cancellation_fee": "Cancellation Fee",
+    "to_pay": "To Pay",
+    "saved_text": {
+      "txt1": "You have saved",
+      "txt2": "on the bill"
+    },
+    "select_address": "Select Address",
+    "change_address_btn": "Change Address",
+    "select_pay_method": "Select Payment Method"
+  },
+  "category_page": {
+    "title": "Restaurant List",
+    "min": "min",
+    "for_two": "for two"
+  },
+  "filter_page": {
+    "title": "FILTERS",
+    "apply_btn": "Apply Filter",
+    "Top Rated": "Top Rated",
+    "Open Now": "Open Now",
+    "Nearest Me": "Nearest Me",
+    "Most Popular": "Most Popular",
+    "Cost High to Low": "Cost High to Low",
+    "Cost Low to High": "Cost Low to High"
+  },
+  "forgot_password_page": {
+    "title": "Forgot Password",
+    "text": "Enter your email and will send you instruction on how to reset it",
+    "send_btn": "Send",
+    "email_placeholder": "Email"
+  },
+  "otp_page": {
+    "enter_otp_text": "Enter your OTP code here",
+    "resend_btn": "Resend?",
+    "confirm_btn": "confirm"
+  },
+  "home_page": {
+    "restaurant": "RESTAURANT",
+    "filter": "FILTERS",
+    "offer": "OFFER",
+    "min": "min",
+    "for_two": "for two",
+    "popular_this_week": "Popular This Week",
+    "no_data": "No Data",
+    "pocket_friendly": "Pocket Friendly",
+    "Most Popular": "Most Popular",
+    "Great Offers": "Great Offers",
+    "Pure Veg Places": "Pure Veg Places",
+    "Pocket Friendly": "Pocket Friendly",
+    "food": "Food",
+    "grocery": "Grocery",
+    "store": "Store",
+    "categories": "Categories",
+    "view_more": "View More",
+    "Nearest Me": "Nearest Me"
+  },
+  "invite_Friends_page": {
+    "title": "Invite Friends",
+    "text": "When your friend install app with your referral code and one order complete, you will both one order free",
+    "referral_code": "Referral Code",
+    "invite_btn": "Invite Your Friends"
+  },
+  "item_review_page": {
+    "title": "Review"
+  },
+  "login_page": {
+    "title": "SIGN IN",
+    "placeholder": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "remember_me": "Remember Me",
+    "forgot_password_btn": "forgot password?",
+    "sign_in_btn": "Sign in",
+    "new_user_txt": "If you are new user?",
+    "sign_up_btn": "Sign up"
+  },
+  "register_page": {
+    "title": "SIGN UP",
+    "placeholder": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "referral_code": "Referral Code"
+    },
+    "sign_up_btn": "Sign up",
+    "already_have_account_txt": "Already have an account?",
+    "sign_in_btn": "Sign in"
+  },
+  "notification_page": {
+    "title": "Notification"
+  },
+  "order_detail_page": {
+    "title": "order detail",
+    "order_summary": "Order Summery",
+    "restaurant_accepted": "Restaurant Accepted",
+    "on_the_way": "On the way",
+    "order_status": "Order Status",
+    "bill_detail": "BILL DETAILS",
+    "item_total": "Item Total",
+    "promo_code": "Promocode",
+    "del_charge": "Delivery Charge",
+    "rest_charge": "Restaurant Charge",
+    "total": "Total",
+    "your_total_saving": "Your Total Saving",
+    "rate_meal": "Rate Meal",
+    "rate_delivery_boy": "Rate Delivery Boy",
+    "restaurant_review": "Restaurant Review",
+    "submit": "Submit",
+    "Item Review": "Item Review"
+  },
+  "order_history_page": {
+    "title": "Order history",
+    "current_order": "Current Order",
+    "restaurant_accepted": "Restaurant Accepted",
+    "on_the_way": "On the way",
+    "items": "ITEMS",
+    "ordered_on": "ORDERED ON",
+    "total_amount": "TOTAL AMOUNT",
+    "cancel_order": "Cancel Order",
+    "past_order": "Past Order",
+    "no_data": "No Data"
+  },
+  "pay_method_page": {
+    "title": "Payment Method",
+    "online_pay": "ONLINE PAY",
+    "cash": "CASH",
+    "razor_pay": "Razor Pay",
+    "pay_pal": "PayPal",
+    "continue_btn": "continue"
+  },
+  "profile_page": {
+    "edit": "edit",
+    "segment": {
+      "reviews": "Reviews",
+      "photos": "Photos",
+      "edit_profile": "Edit profile",
+      "setting": "Setting",
+      "change_password": "Change Password"
+    },
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic",
+    "okay_text": "Ok",
+    "cancel_text": "Cancel",
+    "no_data": "No data",
+    "placeholder": {
+      "name": "Name",
+      "email": "Email",
+      "phone_number": "Phone Number",
+      "location": "Location",
+      "new_password": "New Password",
+      "confirm_password": "Confirm Password"
+    },
+    "notification": "Notification",
+    "location": "Location",
+    "call": "Call",
+    "default_address": "Default Address",
+    "change": "Change",
+    "save_btn": "Save"
+  },
+  "promo_code_page": {
+    "title": "Promo Code",
+    "apply_btn": "Apply"
+  },
+  "restaurant_detail_page": {
+    "review": "Review",
+    "open_now": "Open Now",
+    "mon_to_sun": "Mon to Sun",
+    "rating": "rating",
+    "mins": "mins",
+    "delivery_time": "Delivery Time",
+    "for_two": "For Two",
+    "off": "OFF",
+    "veg_only": "Veg Only",
+    "non_veg": "Non veg",
+    "best_sellers": "Best Sellers",
+    "no_data": "No Data",
+    "exclusive": "Exclusive",
+    "add": "add",
+    "special_combo": "Special Combo",
+    "votes": "votes",
+    "menu": "menu",
+    "view_cart": "VIEW CART",
+    "item": "item"
+  },
+  "review_page": {
+    "review": "Review",
+    "open_now": "Open Now",
+    "mon_to_sun": "Mon to Sun",
+    "rating": "rating",
+    "mins": "mins",
+    "delivery_time": "Delivery Time",
+    "for_two": "For Two",
+    "off": "OFF",
+    "photos": "Photos",
+    "no_data": "No data",
+    "was_helpful": "Was this helpful?",
+    "no": "No",
+    "yes": "Yes"
+  },
+  "select_address_page": {
+    "title": "Select Address",
+    "edit": "Edit",
+    "delete": "Delete",
+    "set_address": "Set Address"
+  },
+  "success_modal": {
+    "congratulations": "CONGRATULATIONS",
+    "text": "Your order is send to Restaurant",
+    "thank_you": "Thank You"
+  },
+  "timeline_page": {
+    "title": "ORDER STATUS",
+    "text": "Your food is being Prepared and waiting for rider",
+    "order_no": "Order No:",
+    "del_text": {
+      "txt1": "Delivery Partner",
+      "txt2": "is on The way and your orders as soon as possible delivered"
+    },
+    "view_order": "VIEW ORDER",
+    "status": {
+      "order_confirm": "Order confirm",
+      "food_prepared": "Food is being Prepared",
+      "rider_pickup_order": "Rider is pickup your order",
+      "food_on_the_way": "Food is On the way",
+      "rider_near_your_place": "Rider is near your place",
+      "delivered": "Delivered"
+    },
+    "cancel_order": "cancel order"
+  },
+  "verify_page": {
+    "text": {
+      "txt1": "We have sent you an SMS with a code",
+      "txt2": "to your number"
+    },
+    "confirm_btn": "Confirm"
+  },
+  "slider": {
+    "slide1": {
+      "slide_name": {
+        "txt1": "Discover Restaurant",
+        "txt2": "Near By You"
+      },
+      "slide_info": "We make it simple to find food for you just enter your address and do the rest"
+    },
+    "slide2": {
+      "slide_name": {
+        "txt1": "Restaurant to your Home",
+        "txt2": "instant delivery"
+      },
+      "slide_info": "We provide door to door service in your time with best quality of food"
+    },
+    "slide3": {
+      "slide_name": {
+        "txt1": "Pickup your delivery",
+        "txt2": "with sweet smile"
+      },
+      "slide_info": "We make food ordering fast, simple and free -no matter if your order online or cash"
+    },
+    "skip": "Skip"
+  },
+  "side_menu": {
+    "Home": "Home",
+    "Notification": "Notification",
+    "Promo Code": "Promo Code",
+    "Invite Friends": "Invite Friends",
+    "Order History": "Order History",
+    "Logout": "Logout",
+    "Setting": "Setting",
+    "Grocery Order": "Grocery Order"
+  },
+  "toasts": {
+    "logged_in_success": "You are successfully logged in",
+    "address_update": "Address Updated",
+    "order_is_out_range": "order is out of area range",
+    "review_add_success": "successfully Added Item review",
+    "shop_review_add_success": "successfully Added shop review",
+    "driver_review_add_success": "successfully Added driver review",
+    "payment_not_possible": "Payment not possible",
+    "setting_set_success": "Successfully set your setting",
+    "profile_set_success": "successfully save your profile",
+    "cart_empty": "The cart is empty",
+    "select_default_address": "Select Default Address"
+  },
+  "store_detail": {
+    "today": "Today",
+    "store": "Store",
+    "product": "Product",
+    "view_more": "View More",
+    "votes": "Votes",
+    "category": "Category",
+    "review": "Review",
+    "add_in_cart": "Add In Cart",
+    "searchPlace": "Search for Restaurant and dishes"
+  },
+  "grocery_cart": {
+    "cart": "cart",
+    "delivery": "delivery",
+    "pickup": "pickup",
+    "bill_details": "Bill Details",
+    "total_payable": "Total Payable",
+    "total_discount": "Total Discount",
+    "delivery_fee": "Delivery Fee",
+    "to_pay": "To Pay",
+    "you_have_saved": "You have saved",
+    "on_the_bill": "on the bill",
+    "select_address": "Select Address",
+    "change_address": "Change Address",
+    "select_payment_method": "select payment method",
+    "apply_coupon": "APPLY COUPON"
+  },
+  "pay_method": {
+    "payment_method": "Payment Method",
+    "cash": "CASH",
+    "online_pay": "ONLINE PAY",
+    "razor_pay": "Razor Pay",
+    "PayPal": "PayPal",
+    "pay": "pay"
+  },
+  "grocery_success": {
+    "CONGRATULATIONS": "CONGRATULATIONS",
+    "msg": " Your order is send to Store ",
+    "ty": "  Thank You"
+  },
+  "grocery_status": {
+    "order_status": "order status",
+    "view_order": "VIEW ORDER",
+    "order_confirm": " Order confirm",
+    "ready": "Grocery is ready at the Store",
+    "delivery": "Order is out of delivery",
+    "place": "Order is near your place",
+    "delivered": "Delivered"
+  },
+  "grocer_order_detail": {
+    "order_detail": "order detail",
+    "order_summery": "Order Summery",
+    "accepted": "Shop Accepted",
+    "way": "On the way",
+    "BILL_DETAILS": "BILL DETAILS",
+    "total": " Item Total",
+    "code": "Promo code",
+    "charge": "Delivery Charge",
+    "Total": "Total",
+    "saving": "Your Total Saving",
+    "Delivered": "Delivered",
+    "review": "Order Review",
+    "Submit": "Submit"
+  },
+  "grocery_history": {
+    "order_history": "order history",
+    "current": "Current Order",
+    "accepted": "Shop Accepted",
+    "way": "On the way",
+    "order_on": "ORDERED ON",
+    "amount": "TOTAL AMOUNT",
+    "past": "Past Order",
+    "no_data": "No Data"
+  }
+}

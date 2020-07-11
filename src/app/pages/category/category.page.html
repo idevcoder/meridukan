@@ -1,0 +1,42 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{"category_page.title" | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div no-data *ngIf="data?.length == 0">
+        <img src="../../../assets/image/no-data-icon-10.jpg" alt="no data">
+    </div>
+    <ng-container *ngFor="let item of data">
+        <div class="card_div" (click)="resturantDetail(item?.id)">
+            <div class="div_image">
+                <img [src]="item?.imagePath + item?.image" />
+            </div>
+            <div class="data_div">
+                <ion-button class="btn_div ion-float-right ion-text-capitalize" *ngIf="item?.exclusive">
+                    {{btnType}}
+                </ion-button>
+                <h3 class="item">{{item?.name}}</h3>
+                <p class="type">{{item?.itemNames}}</p>
+
+                <div class="rate">
+                    <span>
+            <ion-icon name="star"></ion-icon>{{item?.rate}}
+          </span>
+                    <span class="point_span">
+            <div class="point"></div>
+            {{item?.min}} {{"category_page.min" | translate}}
+          </span>
+                    <span class="point_span">
+            <div class="point"></div>
+            {{currency}}{{item?.avarage_plate_price}} {{"category_page.for_two" | translate}}
+          </span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ion-content>

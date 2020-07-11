@@ -1,0 +1,67 @@
+<ion-header no-border>
+
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"grocery_status.order_status" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-vertical">
+  <div class="store_detail">
+    <div class="img_div">
+      <img [src]="data?.shop?.imagePath + data?.shop?.image">
+    </div>
+    <div class="detail_div">
+      <h3 class="name">{{data?.shop?.name}}</h3>
+      <p class="address">{{data?.shop?.address}}</p>
+    </div>
+  </div>
+
+  <div class="status_div">
+    <ion-button class="order_btn" (click)="orderStatus()">
+      {{"grocery_status.view_order" | translate }}
+    </ion-button>
+    <div class="timeline">
+      <div [class]="status >= 1 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status+1 == 1}"></div>
+      <div [class]="status >= 2 ? 'lines' : 'lines disbale'"></div>
+      <h2 class="text">
+        {{"grocery_status.order_confirm" | translate }}
+      </h2>
+    </div>
+    <div class="timeline">
+      <div [class]="status >= 2 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 2}"></div>
+      <div [class]="status >= 3 ? 'lines' : 'lines disbale'"></div>
+      <h2 class="text">
+        {{"grocery_status.ready" | translate }}
+
+      </h2>
+    </div>
+    <div class="timeline">
+      <div [class]="status >= 3 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 3}"></div>
+      <div [class]="status >= 4 ? 'lines' : 'lines disbale'"></div>
+      <h2 class="text">
+        {{"grocery_status.delivery" | translate }}
+
+      </h2>
+    </div>
+    <div class="timeline">
+      <div [class]="status >= 4 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 4}"></div>
+      <div [class]="status >= 5 ? 'lines' : 'lines disbale'"></div>
+      <h2 class="text">
+        {{"grocery_status.place" | translate }}
+      </h2>
+    </div>
+    <div class="timeline">
+      <div [class]="status >= 5 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 5}"></div>
+      <div [class]="status >= 6 ? 'lines' : 'lines last disbale'"></div>
+      <h2 class="text">
+        {{"grocery_status.delivered" | translate }}
+
+      </h2>
+    </div>
+
+  </div>
+
+</ion-content>

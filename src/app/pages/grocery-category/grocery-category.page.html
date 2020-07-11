@@ -1,0 +1,29 @@
+<ion-header no-border>
+
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Category</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon src="../../../assets/icon-image/cart_ic.svg">
+        </ion-icon>
+      </ion-button>
+
+    </ion-buttons> -->
+  </ion-toolbar>
+
+  <div class="search_div">
+    <ion-searchbar placeholder="Search for Products" clearIcon="string" [(ngModel)]="term"></ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="store_div">
+    <div class="product_div" *ngFor="let item of category" (click)="categoryDetail(item?.id)">
+      <img [src]="item?.imagePath + item?.image">
+      <h3 class="name">{{item?.name}}</h3>
+    </div>
+  </div>
+</ion-content>

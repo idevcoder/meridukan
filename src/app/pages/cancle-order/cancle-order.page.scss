@@ -1,0 +1,22 @@
+h2 {
+    font-size: 20px;
+    color: var(--ion-color-darkBlue);
+    border-bottom: 2px dashed var(--ion-border-color);
+    text-align: center;
+    padding-bottom: 12px;
+    margin: 13px 0px 0px;
+    font-family: 'Poppins-Medium';
+}
+ion-item {
+    --inner-padding-end: 0;
+    ion-radio {
+        margin-right: 18px;
+        margin-left: -7px;
+        --color-checked:var(--ion-color-green);
+    }
+    ion-label {
+        font-size: 14.5px;
+        font-family: 'Poppins-Regular';
+        color: var(--ion-color-darkgray)
+    }
+}

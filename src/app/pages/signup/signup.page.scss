@@ -1,0 +1,211 @@
+ion-content {
+    .logo_div {
+        margin-top: 25px;
+        position: relative;
+        height: 290px;
+        .logo_text {
+            font-size: 40px;
+            font-family: "PlayfairDisplay_Bold";
+            color: var(--ion-color-green);
+            margin-top: 10px;
+        }
+        .boy_img {
+            bottom: 0;
+            left: 4px;
+            position: absolute;
+        }
+        span {
+            font-size: 22px;
+            font-family: "Poppins-SemiBold";
+            color: var(--ion-color-darkBlue);
+            position: absolute;
+            bottom: 10px;
+            right: 30px;
+        }
+    }
+    form {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 10px;
+        box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.16);
+        border-radius: 30px;
+        .item_div {
+            --padding-start: 0px;
+            border-bottom: 1px solid var(--ion-color-borderline);
+            --inner-padding-end: 0;
+            .lbl_name {
+                font-size: 20px;
+                color: var(--ion-color-darkBlue);
+                font-family: "Poppins-Medium";
+                margin-bottom: 5px;
+                margin-top: 5px;
+                font-weight: 600;
+            }
+            ion-input {
+                --placeholder-color: var(--ion-color-placeholder);
+                --placeholder-font-style: "Poppins-Regular";
+                --placeholder-opacity: 1;
+                font-size: 16px;
+                font-family: "Poppins-Regular";
+                color: #535353;
+            }
+            .trans-btn {
+                color: var(--ion-color-gray);
+                margin-top: 53px;
+            }
+        }
+        .signin_btn {
+            --border-radius: 25px;
+            margin-top: 30px;
+            height: 46px;
+            --box-shadow: none;
+        }
+    }
+    .or {
+        h2 {
+            font-size: 18px;
+            font-family: "ComicSansMS";
+            color: var(--ion-color-darkBlue);
+            margin-top: 30px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        h2.background {
+            position: relative;
+            z-index: 1;
+            &:before {
+                border-top: 2px solid #dfdfdf;
+                content: "";
+                margin: 0 auto;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 95%;
+                z-index: -1;
+            }
+            span {
+                background: #fff;
+                padding: 0 15px;
+            }
+        }
+        h2.double:before {
+            border-top: none;
+        }
+        h2.double:after {
+            border-bottom: 1px solid blue;
+            -webkit-box-shadow: 0 1px 0 0 red;
+            -moz-box-shadow: 0 1px 0 0 red;
+            box-shadow: 0 1px 0 0 red;
+            content: "";
+            margin: 0 auto;
+            position: absolute;
+            top: 45%;
+            left: 0;
+            right: 0;
+            width: 95%;
+            z-index: -1;
+        }
+        h2.no-background {
+            position: relative;
+            overflow: hidden;
+            span {
+                display: inline-block;
+                vertical-align: baseline;
+                zoom: 1;
+                *display: inline;
+                *vertical-align: auto;
+                position: relative;
+                padding: 0 20px;
+                &:before,
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 1000px;
+                    position: absolute;
+                    top: 0.73em;
+                    border-top: 1px solid red;
+                }
+                &:before {
+                    right: 100%;
+                }
+                &:after {
+                    left: 100%;
+                }
+            }
+        }
+        h2.no-span {
+            display: table;
+            white-space: nowrap;
+            &:before,
+            &:after {
+                border-top: 1px solid green;
+                content: "";
+                display: table-cell;
+                position: relative;
+                top: 0.5em;
+                width: 45%;
+            }
+            &:before {
+                right: 1.5%;
+            }
+            &:after {
+                left: 1.5%;
+            }
+        }
+    }
+    .last-div {
+        margin-top: 20px;
+        .twitter {
+            --background: var(--ion-color-twiter-btn);
+            --box-shadow: 0px 0px 6px 0px rgba(11, 170, 252, 1);
+            ion-icon {
+                font-size: 13px;
+            }
+        }
+        .facbook {
+            --background: var(--ion-color-facebook-btn);
+            --box-shadow: 0px 0px 6px 0px rgba(70, 90, 149, 1);
+            ion-icon {
+                font-size: 13px;
+            }
+        }
+        .google {
+            --background: var(--ion-color-google-btn);
+            margin: 0px 20px;
+            --box-shadow: 0px 0px 6px 0px rgba(246, 90, 91, 1);
+            ion-icon {
+                font-size: 13px;
+            }
+        }
+        .social {
+            height: 35px;
+            width: 35px;
+            --border-radius: 50%;
+            --padding-start: 0px;
+            --padding-end: 0px;
+            --border-width: 2px;
+            --border-style: solid;
+            --border-color: var(--white);
+        }
+        .account_div {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .last_button {
+                --color: var(--ion-color-green);
+                font-size: 12px;
+                font-family: "Poppins-SemiBold";
+                text-transform: capitalize;
+                margin-left: 4px;
+            }
+            .text {
+                font-size: 12px;
+                font-family: "Poppins-Medium";
+                color: var(--ion-color-darkBlue);
+            }
+        }
+    }
+}

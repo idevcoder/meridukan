@@ -1,0 +1,15 @@
+<ion-content class="ion-padding">
+
+    <h2>
+        {{ "cancel_order_page.title" | translate }}
+    </h2>
+
+    <ion-list>
+        <ion-radio-group (ionChange)="change()">
+            <ion-item *ngFor="let i of cancleDate" lines="none">
+                <ion-label>{{i}}</ion-label>
+                <ion-radio slot="start" value="biff" mode="md"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+    </ion-list>
+</ion-content>

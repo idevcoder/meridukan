@@ -1,0 +1,41 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-uppercase">Help Center</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="main_div ion-margin-horizontal ">
+        <div class="chat_div">
+            <div id="talkbubble">
+                <p class="msg">
+                    My order didn't delivered Please help me...
+                </p>
+            </div>
+            <img src="assets/image/help-user.png">
+        </div>
+        <div class="chat_div">
+            <img src="assets/image/chat-img.png">
+            <div id="talk">
+                <p class="msg">
+                    Ok Sir, I will check your order detail please wait
+                </p>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <ion-item lines="none">
+        <ion-input placeholder="Type your Message..."> </ion-input>
+        <ion-button class="send" (click)="profile()">
+            <ion-icon src="assets/icon-image/send.svg"></ion-icon>
+        </ion-button>
+    </ion-item>
+</ion-footer>

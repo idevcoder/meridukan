@@ -1,0 +1,80 @@
+<ion-header no-border>
+
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{data?.name}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="cart()">
+                <ion-icon src="../../../assets/icon-image/cart_ic.svg">
+                </ion-icon>
+            </ion-button>
+
+        </ion-buttons>
+    </ion-toolbar>
+
+
+</ion-header>
+<ion-content>
+    <div class="ion-padding">
+        <div class="detail_div">
+            <div class="img_div">
+                <img [src]="data?.imagePath + data?.image">
+            </div>
+            <h3 class="name">{{data?.name}}</h3>
+            <p class="qty">{{data?.weight}}<span class="price ion-float-end">{{currency}}{{data?.sell_price}}</span></p>
+            <p class="product_detail">
+                {{data?.description}}
+            </p>
+        </div>
+    </div>
+
+    <!-- <p *ngIf="data?.photos?.length==0" class="no_data_p">
+          {{"profile_page.no_data" | translate}}</p> -->
+    <ion-row class="hr">
+        <ion-col size="12">
+
+        </ion-col>
+    </ion-row>
+    <div class="review_divison">
+        <h3 class="h3">{{"store_detail.review" | translate }}</h3>
+        <ion-item class="review_item" *ngFor="let item of review" lines="none">
+            <ion-avatar slot="start">
+                <img [src]="item?.customer?.imagePath + item?.customer?.image" />
+            </ion-avatar>
+            <ion-label>
+                <ion-icon [class]="item.rate >= 5 ? 'first_icon hydrated ion-float-right' :
+                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <ion-icon [class]="item.rate >= 4 ? 'first_icon hydrated ion-float-right' :
+                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <ion-icon [class]="item.rate >= 3 ? 'first_icon hydrated ion-float-right' :
+                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <ion-icon [class]="item.rate >= 2 ? 'first_icon hydrated ion-float-right' :
+                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <ion-icon [class]="item.rate >= 1 ? 'first_icon hydrated ion-float-right' :
+                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <h3 class="name">{{data?.shopName}}</h3>
+
+                <h3 class="ago">{{item?.created_at}}</h3>
+                <p class="detail">{{item?.message}}</p>
+            </ion-label>
+        </ion-item>
+    </div>
+</ion-content>
+<ion-footer>
+    <div class="cart_div ion-margin">
+        <h3 class="cart_lbl"> {{"store_detail.add_in_cart" | translate }}</h3>
+        <div class="qty_div">
+            <ion-button class="add_btn trans-btn" (click)="remove(data)">
+                <ion-icon src="../../../assets/icon-image/minus-sign.svg"></ion-icon>
+            </ion-button>
+            <p class="qty_p">
+                {{data.qty}}
+            </p>
+            <ion-button class="add_btn trans-btn" (click)="AddCart(data)">
+                <ion-icon src="../../../assets/icon-image/plus-signs.svg"></ion-icon>
+            </ion-button>
+        </div>
+    </div>
+</ion-footer>

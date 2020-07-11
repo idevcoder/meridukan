@@ -1,0 +1,30 @@
+ion-content {
+  --background: var(--ion-color-green);
+  .main_div {
+    margin-top: 50px;
+
+    .name {
+      font-size: 30px;
+      font-family: "BarlowCondensed-Bold";
+      color: var(--ion-color-white);
+      margin-top: 26px;
+    }
+    .msg {
+      font-size: 16px;
+      font-family: "Poppins-Medium";
+      color: var(--ion-color-white);
+      margin-bottom: 26px;
+      margin-top: 12px;
+    }
+    .thank_btn {
+      --background: var(--ion-color-white);
+      --color: var(--ion-color-green);
+      --border-radius: 0px 0px 5px 5px;
+      height: 60px;
+      font-size: 25px;
+      font-family: "BarlowCondensed-Bold";
+      --background-activated: var(--ion-color-white);
+      --color-activated: var(--ion-color-green);
+    }
+  }
+}

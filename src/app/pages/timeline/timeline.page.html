@@ -1,0 +1,107 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">
+            {{'timeline_page.title' | translate}} {{driver?.imagePath + driver?.image}}
+        </ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text="" mode="md"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <agm-map [styles]="styles" [latitude]="Centerlat" [longitude]="Centerlng" [disableDefaultUI]="true">
+        <agm-direction [origin]="origin" [destination]="destination" [renderOptions]="renderOptions" [markerOptions]="markerOptions">
+        </agm-direction>
+
+        <agm-marker [latitude]="driver.lat" [longitude]="driver.lng" [iconUrl]="iconUrl" *ngIf="isvisible">
+        </agm-marker>
+    </agm-map>
+    <ion-slides #slides pager="true">
+        <ion-slide>
+            <img [src]="data?.shop?.imagePath + data?.shop?.image">
+            <div class="items">
+                <h2 class="user">
+                    {{data?.shop?.name}}
+                </h2>
+                <p>
+                    {{'timeline_page.text' | translate}}
+                </p>
+                <p class="order">
+                    <span class="title">{{'timeline_page.order_no' | translate}}</span>
+                    <span class="orderList">
+                        {{data?.order_no}}
+                    </span>
+                </p>
+            </div>
+            <h2 class="price">
+                {{currency}}{{data?.payment}}
+            </h2>
+        </ion-slide>
+        <ion-slide *ngIf="data?.order_status!='Pending' && data?.order_status!='Approved'">
+            <img [src]="driver?.imagePath + driver?.image">
+            <div class="items">
+                <h2 class="user" *ngIf="driver?.name">
+                    {{driver?.name}}
+                </h2>
+                <p *ngIf="driver?.name">
+                    {{'timeline_page.del_text.txt1' | translate}} {{driver?.name}} {{'timeline_page.del_text.txt2' | translate}}
+                </p>
+            </div>
+            <ion-button class="accepted" shape="round">
+                <ion-icon src="../../../assets/icon-image/call.svg"></ion-icon>
+                <a href="tel: {{driver?.phone}}">{{driver?.phone}} </a>
+            </ion-button>
+        </ion-slide>
+    </ion-slides>
+    <ion-button class="otherBtn" shape="round" (click)="orderHistory()">{{'timeline_page.view_order' | translate}}</ion-button>
+</ion-content>
+
+<ion-footer>
+    <div class="timeline">
+        <div [class]="status >= 1 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status+1 == 1}"></div>
+        <div [class]="status >= 2 ? 'lines' : 'lines disbale'"></div>
+        <h2 class="text">
+            {{'timeline_page.status.order_confirm' | translate}}
+        </h2>
+    </div>
+    <div class="timeline">
+        <div [class]="status >= 2 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 2}"></div>
+        <div [class]="status >= 3 ? 'lines' : 'lines disbale'"></div>
+        <h2 class="text">
+            {{'timeline_page.status.food_prepared' | translate}}
+        </h2>
+    </div>
+    <div class="timeline">
+        <div [class]="status >= 3 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 3}"></div>
+        <div [class]="status >= 4 ? 'lines' : 'lines disbale'"></div>
+        <h2 class="text">
+            {{'timeline_page.status.rider_pickup_order' | translate}}
+        </h2>
+    </div>
+    <div class="timeline">
+        <div [class]="status >= 4 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 4}"></div>
+        <div [class]="status >= 5 ? 'lines' : 'lines disbale'"></div>
+        <h2 class="text">
+            {{'timeline_page.status.food_on_the_way' | translate}}
+        </h2>
+    </div>
+    <div class="timeline">
+        <div [class]="status >= 5 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 5}"></div>
+        <div [class]="status >= 6 ? 'lines' : 'lines disbale'"></div>
+        <h2 class="text">
+            {{'timeline_page.status.rider_near_your_place' | translate}}
+        </h2>
+    </div>
+    <div class="timeline">
+        <div [class]="status >= 6 ? 'dot' : 'dot disbale'" [ngClass]="{'pulsating-circle': status == 6}"></div>
+        <div [class]="status >= 6 ? 'lines last' : 'lines last disbale'"></div>
+        <h2 class="text">
+            {{'timeline_page.status.delivered' | translate}}
+        </h2>
+    </div>
+    <ion-button class="footerBtn" shape="round" (click)="cancleOrder()"> {{'timeline_page.cancel_order' | translate}} </ion-button>
+</ion-footer>

@@ -1,0 +1,434 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "./theme/rtl.scss";
+.swiper-pagination-bullet-active {
+  background: var(--ion-color-green);
+}
+
+.err {
+  padding-top: 4px;
+  font-size: 12px;
+  //text-align: center;
+  margin: auto;
+  color: red !important;
+  font-weight: 500;
+}
+
+.no_data_p {
+  text-align: center;
+  font-size: 14px;
+  color: var(--ion-color-darkgray);
+}
+
+ion-button {
+  --ripple-color: transparent;
+  --box-shadow: none;
+}
+
+[no-data] {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 150px;
+    opacity: 0.2;
+  }
+}
+
+.ng-select.country-codeSelect .ng-select-container {
+  background-color: transparent;
+  border: 0px !important;
+  height: 30px;
+  min-height: 30px;
+  font-family: "poppins_m";
+  font-size: 15px;
+}
+
+.ng-select .ng-arrow-wrapper .ng-arrow {
+  border-color: black transparent transparent;
+  border-width: 6px 5px 2.5px;
+}
+
+.ng-select.ng-valid.ng-touched .ng-select-container {
+  box-shadow: none !important;
+}
+
+ion-header {
+  ion-toolbar {
+    ion-title {
+      font-size: 18px;
+      font-family: "Poppins-Medium";
+      color: var(--ion-color-green);
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 90px 1px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+    ion-buttons {
+      position: relative;
+      ion-menu-button {
+        color: var(--ion-color-darkBlue) !important;
+      }
+      ion-back-button {
+        color: var(--ion-color-black);
+      }
+      ion-button {
+        color: var(--ion-color-black) !important;
+      }
+    }
+  }
+}
+
+.otp_btn {
+  --background: var(--ion-color-green);
+  --color: var(--ion-color-white);
+  font-size: 16px;
+  font-family: "Poppins-Medium";
+  height: 50px;
+  --border-radius: 0px;
+  margin: 0px;
+  --background-activated: var(--ion-color-green);
+  --background-focused: var(--ion-color-green);
+  width: 100%;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+
+.trans-btn {
+  --background: transparent;
+  --box-shadow: none;
+  --border: none;
+  --padding-start: none;
+  font-size: 16px;
+  --padding-end: none;
+  font-family: "Poppins-Regular";
+  --background-activated: none;
+  margin-right: 0px;
+  --color-activated: none;
+}
+
+app-slide {
+  .swiper-container-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: 200px !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+app-payment {
+  .swiper-container-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: 0px !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+.searchbar-input.sc-ion-searchbar-md {
+  -webkit-padding-start: 30px !important;
+  padding-inline-start: 30px !important;
+}
+
+.sc-ion-searchbar-md-h {
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 8px;
+  //padding-inline-start: 0px;
+  -webkit-padding-end: 8px;
+  //padding-inline-end: 0px;
+}
+
+.searchbar-input-container.sc-ion-searchbar-ios {
+  contain: none;
+}
+
+.searchbar-search-icon.sc-ion-searchbar-ios {
+  margin-left: calc(50% - 60px);
+  left: inherit;
+  top: 11px;
+  right: 18px;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  contain: strict;
+}
+
+.searchbar-search-icon.sc-ion-searchbar-md {
+  left: auto !important;
+  top: 11px !important;
+  right: 18px !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.searchbar-input {
+  padding-left: 10px;
+  background: #fff !important;
+  border-radius: 25px !important;
+  height: 35px !important;
+  max-width: 400px;
+  font-size: 11px !important;
+  font-family: "Poppins-Italic" !important;
+  --placeholder-font-style: "Poppins-Italic";
+  border: 1px solid transparent;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.16) !important;
+  ion-icon {
+    right: 16px !important;
+    left: auto !important;
+    color: var(--ion-color-gray);
+  }
+}
+
+.SuccessModal {
+  --height: 336px !important;
+  --max-height: 420px !important;
+  padding: 0px 20px !important;
+  --border-radius: 5px !important;
+}
+
+.filterModal {
+  --height: 336px !important;
+  --max-height: 420px !important;
+  padding: 0px 0px !important;
+  --border-radius: 5px 5px 0px 0px !important;
+  .modal-wrapper {
+    position: absolute !important;
+    bottom: 0 !important;
+  }
+}
+
+.popover {
+  --height: 245px !important;
+  --max-height: 250px !important;
+  --width: 100% !important;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25) !important;
+  --border-radius: 5px 5px 0px 0px !important;
+  .modal-wrapper {
+    position: absolute;
+    bottom: 0;
+  }
+  .popover-content {
+    top: inherit !important;
+    bottom: 105px !important;
+    left: inherit !important;
+    right: 0px !important;
+    transform-origin: right bottom !important;
+  }
+}
+
+.product_filter {
+  --height: 90px !important;
+  --max-height: 170px !important;
+  --width: 200px !important;
+
+  --border-radius: 5px !important;
+  border: 1px solid var(--green-color);
+  .popover-content {
+    top: 50px !important;
+    left: inherit !important;
+    right: 16px !important;
+    transform-origin: right top !important;
+  }
+}
+
+.cancleOrderModel {
+  --height: 390px;
+  --max-height: 400px;
+  --width: 100%;
+  --border-radius: 10px 10px 0px 0px;
+  .modal-wrapper {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.alert-sub-title.sc-ion-alert-md,
+.alert-title.sc-ion-alert-md,
+.alert-title.sc-ion-alert-ios {
+  color: var(--ion-color-green) !important;
+}
+
+.alert-button.sc-ion-alert-md,
+.alert-button.sc-ion-alert-ios {
+  color: var(--ion-color-green);
+}
+
+.alert-radio-inner.sc-ion-alert-md {
+  background-color: var(--ion-color-green);
+}
+
+[aria-checked="true"].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md {
+  border-color: var(--ion-color-green);
+}
+
+[aria-checked="true"].sc-ion-alert-ios .alert-radio-label.sc-ion-alert-ios {
+  color: var(--ion-color-green);
+}
+
+[aria-checked="true"].sc-ion-alert-ios .alert-radio-inner.sc-ion-alert-ios {
+  border-color: var(--ion-color-green);
+}
+
+sk-chase {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: sk-chase-dot 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:before {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 25%;
+  background-color: var(--ion-color-green);
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:nth-child(1) {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3) {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4) {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5) {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6) {
+  animation-delay: -0.6s;
+}
+
+.sk-chase-dot:nth-child(1):before {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2):before {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3):before {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4):before {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5):before {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6):before {
+  animation-delay: -0.6s;
+}
+
+@keyframes sk-chase {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sk-chase-dot {
+  80%,
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sk-chase-dot-before {
+  50% {
+    transform: scale(0.4);
+  }
+  100%,
+  0% {
+    transform: scale(1);
+  }
+}
+
+.otp-modal {
+  --height: 336px;
+  --max-height: 395px;
+  padding: 0px 30px;
+  --border-radius: 24px;
+}
+
+.custom-loader {
+  --background: transparent;
+  ion-backdrop {
+    background-color: #000;
+    opacity: 0.9 !important;
+  }
+  .loading-wrapper {
+    -webkit-animation: ld-vortex-out 2s ease-out infinite;
+    animation: ld-vortex-out 2s ease-out infinite;
+    animation-timing-function: cubic-bezier(0.05, 0, 3, 0.05);
+    min-width: 90px;
+    min-height: 90px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+.loading-wrapper.sc-ion-loading-md,
+.loading-wrapper.sc-ion-loading-ios {
+  background: transparent !important;
+  box-shadow: none !important;
+}

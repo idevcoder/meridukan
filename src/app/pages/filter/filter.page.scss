@@ -1,0 +1,84 @@
+ion-content {
+  ion-row {
+    margin-bottom: 10px;
+    ion-col {
+      padding: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  .name {
+    font-size: 18px;
+    font-family: "Poppins-Medium";
+    color: var(--ion-color-green);
+    margin-bottom: 30px;
+  }
+  .otp_btn {
+    --border-radius: 25px;
+    margin-top: 30px;
+    height: 46px;
+    --box-shadow: none;
+  }
+  input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  input {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 11px 23px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    outline: 0;
+    background-color: transparent;
+  }
+
+  .checkbox-button__input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .checkbox-button__control {
+    position: relative;
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    margin-right: 12px;
+    vertical-align: middle;
+    background-color: inherit;
+    color: #017b5f;
+    border: 2px solid var(--ion-color-darkBlue);
+    border-radius: 5px;
+  }
+
+  .checkbox-button__input:checked + .checkbox-button__control:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--ion-color-green);
+  }
+
+  .checkbox-button__input:checked + .checkbox-button__control {
+    border-color: var(--ion-color-darkBlue);
+  }
+
+  .checkbox-button__control {
+    transform: scale(0.75);
+  }
+  .example {
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  label {
+    margin-bottom: 5px;
+    font-family: "Poppins-Medium";
+    color: var(--ion-color-green);
+    font-size: 14px;
+  }
+}

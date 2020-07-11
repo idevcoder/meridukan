@@ -1,0 +1,73 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-button fill="clear" mode="md" (click)="paymentCard()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">{{"add_card_page.title" | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="visa_div">
+        <ion-row>
+            <ion-col>
+                <div>
+                    <ion-icon name="ios-checkmark-circle" class="check_div"></ion-icon>
+                    <img src="assets/image/visa-img.png">
+                </div>
+            </ion-col>
+            <ion-col>
+                <img src="assets/image/Master-card.png">
+            </ion-col>
+            <ion-col>
+                <img src="assets/image/paypal.png">
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <div class="col_div">
+        <ion-label class="card_label">
+            {{"add_card_page.card_number" | translate}}
+        </ion-label>
+        <ion-input value="4319  5312  0215  1289">
+            <ion-icon name="ios-checkmark-circle" class="check_div"></ion-icon>
+        </ion-input>
+        <ion-row>
+
+            <ion-col class="ion-no-padding" size="6">
+                <ion-label class="card_label">
+                    {{"add_card_page.expiration_date" | translate}}
+                </ion-label>
+
+                <ion-input value="09/15">
+                    <ion-icon name="ios-checkmark-circle" class="check_div"></ion-icon>
+                </ion-input>
+            </ion-col>
+
+            <ion-col class="ion-no-padding" size="5" offset="1">
+                <ion-label class="card_label">
+                    {{"add_card_page.cvv" | translate}}
+                </ion-label>
+                <ion-input value="****">
+                    <ion-icon name="ios-checkmark-circle" class="check_div"></ion-icon>
+                </ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-label class="card_label">
+            {{"add_card_page.card_holders_name" | translate}}
+        </ion-label>
+        <ion-input value="Randy Betancourt">
+            <ion-icon name="ios-checkmark-circle" class="check_div"></ion-icon>
+        </ion-input>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-button class="otp_btn" (click)="paymentCard()">
+        {{"add_card_page.add_card" | translate}}
+    </ion-button>
+</ion-footer>

@@ -1,0 +1,182 @@
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+    <ion-header no-border>
+        <ion-toolbar [style.backgroundColor]="state == 1 ? '' : 'rgba(0,0,0,0.7)'" mode="md">
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+            </ion-buttons>
+            <ion-buttons slot="end">
+                <ion-button fill="clear" mode="md" (click)="addBookmark()">
+                    <ion-icon class="bookmark-icon" *ngIf="!data?.favourite" src="../../../assets/icon-image/detail-icon.svg">
+                    </ion-icon>
+                    <ion-icon class="bookmark-icon" *ngIf="data?.favourite" src="../../../assets/icon-image/bookmark-icon.svg">
+                    </ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <div class="img_div">
+        <img [src]="data?.imagePath + data?.image" />
+        <div class="name_div">
+            <h3 class="name">
+                {{data?.name}}
+            </h3>
+        </div>
+    </div>
+
+    <div class="menu_div ion-margin-horizontal">
+        <div class="four" (click)="goReview()">
+            <div class="first_div">
+                <span>{{data?.rate}}</span>
+            </div>
+            <div class="last_div">
+                <h3 class="ascii">{{data?.totalReview}}</h3>
+                <h3 class="review">{{'restaurant_detail_page.review' | translate}}</h3>
+            </div>
+        </div>
+        <h3 class="tittle">{{data?.itemNames}}</h3>
+        <p class="address">{{data?.address}}</p>
+        <p class="open">
+            {{'restaurant_detail_page.open_now' | translate}} <span>- {{data?.open_time}}-{{data?.close_time}} {{'restaurant_detail_page.mon_to_sun' | translate}} </span>
+        </p>
+    </div>
+    <div class="rating_div ion-margin-horizontal">
+        <div class="first_col">
+            <h3 class="rate">
+                <ion-icon name="star"></ion-icon>{{data?.rate}}
+            </h3>
+            <h3 class="rating">5000+ {{'restaurant_detail_page.rating' | translate}}</h3>
+        </div>
+        <div class="first_col ion-text-center dot_div">
+            <div class="dot"></div>
+        </div>
+        <div class="first_col">
+            <h3 class="rate">{{data?.delivery_time}} {{'restaurant_detail_page.mins' | translate}}</h3>
+            <h3 class="rating">{{'restaurant_detail_page.delivery_time' | translate}}</h3>
+        </div>
+        <div class="first_col ion-text-center dot_div">
+            <div class="dot"></div>
+        </div>
+        <div class="first_col">
+            <h3 class="rate">{{currency}}{{data?.avarage_plate_price}}</h3>
+            <h3 class="rating">{{'restaurant_detail_page.for_two' | translate}}</h3>
+        </div>
+    </div>
+
+    <div class="coopan_div">
+        <div class="container" *ngFor="let item of data?.coupon">
+            <section class="left">
+                <p class="left_p">{{item?.discount}}% {{'restaurant_detail_page.off' | translate}}</p>
+            </section>
+            <section class="right">
+                <p class="right_p">{{item?.description}}</p>
+            </section>
+        </div>
+    </div>
+
+    <div class="toggle_div ion-margin-horizontal">
+        <p class="text">
+            {{'restaurant_detail_page.veg_only' | translate}}
+            <ion-toggle checked class="ion-float-right" mode="md" [(ngModel)]="vegonly" (ionChange)="vegOnlyItem()">
+            </ion-toggle>
+        </p>
+        <p class="text">
+            {{'restaurant_detail_page.non_veg' | translate}}
+            <ion-toggle checked class="last_toggle" mode="md" [(ngModel)]="nonVeg" (ionChange)="vegOnlyItem()">
+            </ion-toggle>
+        </p>
+    </div>
+    <div class="best_seller ion-margin-horizontal">
+        <p class="best_p">{{'restaurant_detail_page.best_sellers' | translate}}</p>
+        <p *ngIf="data?.bestSeller?.length==0" class="no_data_p">{{'restaurant_detail_page.no_data' | translate}}</p>
+        <ion-row>
+            <ion-col size="6" *ngFor="let item of data?.bestSeller">
+                <div class="exclusive_div" *ngIf="item.isPopular">
+                    {{'restaurant_detail_page.exclusive' | translate}}
+                </div>
+                <img [src]="item?.imagePath +item?.image" />
+                <h3 class="item">{{item?.name}}</h3>
+                <p class="vote">
+                    {{item?.categoryName}}
+                    <span (click)="itemReview(item.id)">
+            <ion-icon name="star"></ion-icon>{{item?.rate}} {{'restaurant_detail_page.votes' | translate}}
+          </span>
+                </p>
+                <div class="add_div">
+                    <p class="price" [ngStyle]="{'color':item.isPopular ? 'var(--ion-color-btn-color)' : 'var(--ion-color-green)'}">
+                        {{currency}} {{item?.price}}
+                        <span *ngIf="item?.sprice"> ${{item?.sprice}}</span>
+                    </p>
+                    <div class="ion-float-right btn_store">
+                        <ion-button fill="outline" *ngIf="item.qty == 0" class="ion-text-lowercase" (click)="addtocart(item)">
+                            {{'restaurant_detail_page.add' | translate}}
+                            <ion-icon name="add"></ion-icon>
+                        </ion-button>
+                        <div class="btn_div" *ngIf="item.qty > 0">
+                            <ion-button class="add-btn" (click)="minusQty(item)">
+                                <ion-icon name="remove"></ion-icon>
+                            </ion-button>
+                            <ion-label class="one">
+                                {{item?.qty}}
+                            </ion-label>
+                            <ion-button class="add-btn" (click)="addtocart(item)">
+                                <ion-icon name="add"></ion-icon>
+                            </ion-button>
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+    <div class="special_div ion-margin-horizontal">
+        <p class="best_p">{{'restaurant_detail_page.special_combo' | translate}}</p>
+        <P *ngIf="data?.combo?.length==0" class="no_data_p">{{'restaurant_detail_page.no_data' | translate}}</P>
+        <div *ngFor="let item of data?.combo" class="combo_div">
+            <div class="add_div">
+                <h3 class="name">{{item?.name}}</h3>
+                <div class="ion-float-right btn_store">
+                    <ion-button fill="outline" *ngIf="item.qty == 0" class="ion-float-right ion-text-lowercase" (click)="addtocart(item)">
+                        {{'restaurant_detail_page.add' | translate}}
+                        <ion-icon name="add" class="ion-float-right"></ion-icon>
+                    </ion-button>
+                    <div class="btn_div ion-float-right" *ngIf="item.qty > 0">
+                        <ion-button class="add-btn" (click)="minusQty(item)">
+                            <ion-icon name="remove"></ion-icon>
+                        </ion-button>
+                        <ion-label class="one">
+                            {{item?.qty}}
+                        </ion-label>
+                        <ion-button class="add-btn" (click)="addtocart(item)">
+                            <ion-icon name="add"></ion-icon>
+                        </ion-button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="type">{{item?.type}}</p>
+            <p class="type">
+                <ion-icon name="star" [class]="item?.rate >=1 ? '' : 'star'"></ion-icon>
+                <ion-icon name="star" [class]="item?.rate >=2 ? '' : 'star'"></ion-icon>
+                <ion-icon name="star" [class]="item?.rate >=3 ? '' : 'star'"></ion-icon>
+                <ion-icon name="star" [class]="item?.rate >=4 ? '' : 'star'"></ion-icon>
+                <ion-icon name="star" [class]="item?.rate >=5 ? '' : 'star'"></ion-icon>
+                {{item?.totalReview}} {{'restaurant_detail_page.votes' | translate}}
+            </p>
+            <p class="price">{{currency}} {{item?.package_price}}</p>
+            <p class="detail">{{item?.itemsName}}</p>
+        </div>
+        <div class="ion-text-center">
+            <ion-button class="menu_btn" (click)="presentPopover($event)">
+                <ion-icon src="assets/icon-image/restaurant.svg"></ion-icon>&nbsp;&nbsp; {{'restaurant_detail_page.menu' | translate}}
+            </ion-button>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar class="ion-padding-horizontal" (click)="Gotocart()">
+        <p>
+            {{'restaurant_detail_page.view_cart' | translate}}
+            <ion-icon src="assets/icon-image/cart.svg"></ion-icon>
+            <span class="ion-float-right">{{totalItem}} {{'restaurant_detail_page.item' | translate}} | {{currency}} {{totalPrice}}</span>
+        </p>
+    </ion-toolbar>
+</ion-footer>

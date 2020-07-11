@@ -1,0 +1,82 @@
+ion-content {
+  .main-container {
+    .choose-address-title {
+      font-size: 15px;
+      font-family: "Poppins-Medium";
+      color: var(--ion-color-darkBlue);
+      padding: 16px 0px;
+      border-bottom: 1px solid var(--ion-color-borderline);
+    }
+    .select-addres-div {
+      padding: 16px 20px 10px 20px;
+      ion-row {
+        ion-col {
+          padding: 5px 8px;
+          .back-image-div {
+            background: url(http://placehold.it/85x50);
+            height: 50px;
+            border-radius: 8px;
+            div {
+              padding-top: 16px;
+              font-size: 15px;
+              color: var(--ion-color-white);
+              font-family: "Poppins-SemiBold";
+              border-radius: 8px;
+              background: rgba(0, 0, 0, 0.3);
+              height: 100%;
+            }
+          }
+
+          .checkbox-disabled {
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+    .input-section {
+      padding: 22px 16px 16px 16px;
+      ion-input,
+      ion-select {
+        margin-bottom: 8px;
+      }
+    }
+    ion-select {
+      background: var(--ion-input-backColor);
+      height: 50px;
+      border-radius: 8px;
+      font-size: 17px;
+      opacity: 1 !important;
+      --padding-top: 16px;
+      --padding-end: 16px;
+      .select-placeholder {
+        color: var(--ion-placeholder-color);
+      }
+    }
+    ion-button {
+      --border-radius: 0px 0px 8px 8px !important;
+    }
+  }
+}
+
+[input-text] {
+  height: 50px;
+  font-family: "Poppins-Regular";
+  border-bottom: solid 1px var(--ion-border-color);
+  --padding-start: 14px;
+  --placeholder-color: var(--ion-placeholder-color);
+  --placeholder-font-style: "Poppins-Regular";
+  font-size: 17px;
+}
+[custom-chckbox] {
+  height: 20px;
+  width: 20px;
+  --background-checked: var(--ion-color-darkBlue) !important;
+  --border-color-checked: var(--ion-color-darkBlue) !important;
+}
+.err {
+  padding-top: 0px;
+}
+agm-map {
+  height: 250px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,40 @@
+<ion-header no-border>
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <!-- <ion-button (click)="back()">
+        <ion-icon src="../../../assets/icon-image/close_b.svg">
+        </ion-icon>
+      </ion-button> -->
+      <ion-back-button defaultHref="home" icon="../../../assets/icon-image/close_b.svg" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"store_detail.store" | translate}} </ion-title>
+  </ion-toolbar>
+  <div class="search_div">
+    <ion-searchbar placeholder="Search for Products" clearIcon="string" [(ngModel)]="term"></ion-searchbar>
+  </div>
+
+</ion-header>
+
+<ion-content class="ion-padding-vertical">
+  <div class="store_div">
+    <div class="product_div" *ngFor="let item of Store |filter:term" (click)="storeDetail(item?.id)">
+      <!-- <div class="new_div" *ngIf="item?.isnew">
+        <p class="new_p">New</p>
+      </div> -->
+      <div class="img_div">
+        <img [src]="item?.imagePath + item?.image">
+      </div>
+      <h3 class="name">{{item?.name}}</h3>
+      <!-- <div class="organic_div">
+        <p class="or_lbl">Organic</p>
+        <div class="dot_div">
+        </div>
+        <p class="or_lbl">Groceries</p>
+      </div> -->
+      <p class="away_lbl">
+        <ion-icon src="../../../assets/icon-image/gro_pin.svg"></ion-icon>
+        {{item?.away}}
+      </p>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,104 @@
+<ion-header no-border>
+  <ion-toolbar mode="md">
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon src="../../../assets/icon-image/cart_ic.svg">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="locationContent">
+      <img src="../../assets/image/location.png" />
+      <div class="textContent">
+        <h2 class="location">
+          Grocery
+        </h2>
+        <p class="address">46 Park Avenue 98 Station Road, Wembey London
+        </p>
+      </div>
+    </div>
+
+  </ion-toolbar>
+  <ion-searchbar placeholder="Search for Products" clearIcon="string" [(ngModel)]="term"></ion-searchbar>
+</ion-header>
+
+<ion-content class="ion-padding-bottom">
+  <h3 class="main_lbl">Trending Near You <ion-button class="trans-btn more_btn" (click)="viewMore()">View More
+    </ion-button>
+  </h3>
+  <div class="trending_div">
+    <div class="product_div" *ngFor="let item of trending">
+      <div class="img_div">
+        <img [src]="item?.img">
+
+
+      </div>
+      <h3 class="name">{{item?.name}}</h3>
+      <p class="qunty">{{item?.qty}}</p>
+      <div class="btn_div">
+        <div class="qty_div">
+          <ion-button class="add_btn trans-btn">
+            <ion-icon src="../../../assets/icon-image/minus-sign.svg">
+
+            </ion-icon>
+          </ion-button>
+          <p class="qty_p">
+            0
+          </p>
+          <ion-button class="add_btn trans-btn">
+            <ion-icon src="../../../assets/icon-image/plus-signs.svg">
+
+            </ion-icon>
+          </ion-button>
+        </div>
+        <p class="price">{{item?.price}}</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="offer_div">
+    <img src="../../../assets/image/maket_logo.png">
+    <div class="detail_div">
+      <h3 class="discount">Upto $5.00 off</h3>
+      <p class="text_lbl">Buy with Us</p>
+    </div>
+  </div>
+  <h3 class="main_lbl">Store <ion-button class="trans-btn more_btn">View More</ion-button>
+  </h3>
+  <div class="store_div">
+    <div class="product_div" *ngFor="let item of Store">
+      <div class="new_div">
+        <p class="new_p">New</p>
+      </div>
+      <div class="img_div">
+        <img [src]="item?.img">
+      </div>
+      <h3 class="name">{{item?.name}}</h3>
+      <div class="organic_div">
+        <p class="or_lbl">Organic</p>
+        <div class="dot_div">
+        </div>
+        <p class="or_lbl">Groceries</p>
+      </div>
+      <p class="away_lbl">
+        <ion-icon src="../../../assets/icon-image/gro_pin.svg"></ion-icon>
+        {{item?.away}}
+      </p>
+    </div>
+  </div>
+  <div class="money_offer">
+    <img src="../../../assets/image/doller_im.png">
+    <div class="detail_div">
+      <h3 class="discount">Get $50</h3>
+      <p class="text_lbl">Invite your friends to shop
+        on Food Cart</p>
+    </div>
+  </div>
+  <h3 class="main_lbl">Categories <ion-button class="trans-btn more_btn">View More</ion-button>
+  </h3>
+  <div class="categories_div">
+    <div class="product_div" *ngFor="let item of category">
+      <img [src]="item?.img">
+      <h3 class="name">{{item?.name}}</h3>
+    </div>
+  </div>
+</ion-content>

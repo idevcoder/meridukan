@@ -1,0 +1,41 @@
+<ion-content>
+    <div class="ion-text-center  logo_div ion-margin-horizontal">
+        <div>
+            <ion-button class="ion-float-left backBtn" fill="clear" (click)="back()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </ion-button>
+        </div>
+
+        <img src="assets/image/logo.png" />
+
+        <h3 class="logo_text">{{"app_name" | translate}}</h3>
+        <p class="ion-padding-horizontal msg">{{"otp_page.enter_otp_text" | translate}}</p>
+        <div class="otp-input-div">
+            <ion-input clearOnEdit="true" autofocus="true" type="tel" name="a" [(ngModel)]="opt.a" #a
+                [ngClass]="{'otp-fill': opt.a?.length > 0 }" (keyup)="moveFocus($event,b,'',1)" maxlength="1">
+            </ion-input>
+            <ion-input clearOnEdit="true" type="tel" name="b" [(ngModel)]="opt.b" #b
+                [ngClass]="{'otp-fill': opt.b?.length > 0 }" (keyup)="moveFocus($event,c,a,2)" maxlength="1">
+            </ion-input>
+            <ion-input clearOnEdit="true" type="tel" name="c" [(ngModel)]="opt.c" #c
+                [ngClass]="{'otp-fill': opt.c?.length > 0 }" (keyup)="moveFocus($event,d,b,3)" maxlength="1">
+            </ion-input>
+            <ion-input clearOnEdit="true" type="tel" name="d" [(ngModel)]="opt.d" #d
+                [ngClass]="{'otp-fill': opt.d?.length > 0 }" (keyup)="moveFocus($event,e,c,4)" maxlength="1">
+            </ion-input>
+            <ion-input clearOnEdit="true" type="tel" name="d" [(ngModel)]="opt.e" #e
+                [ngClass]="{'otp-fill': opt.e?.length > 0 }" (keyup)="moveFocus($event,f,d,5)" maxlength="1">
+            </ion-input>
+            <ion-input clearOnEdit="true" type="tel" name="e" [(ngModel)]="opt.f" #f
+                [ngClass]="{'otp-fill': opt.f?.length > 0 }" (keyup)="moveFocus($event,'',e,6)" maxlength="1">
+            </ion-input>
+        </div>
+        <p class="err" *ngIf="err?.otp">{{err?.otp}}*</p>
+        <ion-button class="resend-btn ion-text-capitalize trans-btn" (click)="resendOtp()">
+            {{"otp_page.resend_btn" | translate}}</ion-button>
+
+        <ion-button (click)="goHome()" class="mainBtn" Expand="block" shape="round">
+            {{"otp_page.confirm_btn" | translate}}
+        </ion-button>
+    </div>
+</ion-content>

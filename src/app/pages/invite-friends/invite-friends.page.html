@@ -1,0 +1,27 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-uppercase">{{"invite_Friends_page.title" | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="main_div ion-margin-horizontal">
+        <img src="assets/image/invite.png">
+        <h3 class="name">{{"invite_Friends_page.title" | translate}}</h3>
+        <p class="detail">{{"invite_Friends_page.text" | translate}}</p>
+        <h3 class="code">{{"invite_Friends_page.referral_code" | translate}}</h3>
+        <div class="coopan_div">
+            <h3 class="coopan">{{data}}</h3>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-button class="otp_btn" (click)="shareIt()">
+        {{"invite_Friends_page.invite_btn" | translate}}
+    </ion-button>
+</ion-footer>

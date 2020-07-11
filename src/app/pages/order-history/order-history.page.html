@@ -1,0 +1,84 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-uppercase">{{"order_history_page.title" | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button> </ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div no-data *ngIf="data?.current_order?.length ==0 && data?.past_order?.length==0">
+        <img src="../../../assets/image/no-data-icon-10.jpg" alt="no data">
+    </div>
+    <div class="ion-margin-horizontal">
+
+        <p class="main_heading" *ngIf="data?.current_order?.length > 0">{{"order_history_page.current_order" | translate}}</p>
+        <div class="card_div" *ngFor="let item of data?.current_order">
+            <ion-item lines="none" (click)="orderDetail(item.id)">
+
+                <img [src]="item.shop.imagePath +item.shop.image" />
+                <ion-label>
+                    <h3 class="name">{{item?.shop?.name}} <span class="status" *ngIf="item?.order_status=='DriverApproved' || item?.order_status=='Approved' || item?.order_status=='Prepare'">
+              {{"order_history_page.restaurant_accepted" | translate}}</span>
+                        <span class="status" *ngIf="item?.order_status=='DriverAtShop' || item?.order_status=='PickUpFood' || item?.order_status=='OnTheWay' || item?.order_status=='DriverReach'">{{"order_history_page.on_the_way" | translate}}</span>
+                        <span class="status" *ngIf=" item?.order_status=='Pending'">{{item?.order_status}}</span>
+                        <span class="status" *ngIf=" item?.order_status=='Delivered'">{{item?.order_status}}</span>
+                        <span class="status" *ngIf=" item?.order_status=='Cancel'">{{item?.order_status}}</span>
+
+                    </h3>
+                    <p class="address">{{item?.shop?.address}}</p>
+                </ion-label>
+
+            </ion-item>
+
+            <ion-label>
+                <h3 class="menu">{{"order_history_page.items" | translate}} <span class="ion-float-right">{{item?.order_no}}</span></h3>
+                <p class="order" *ngFor="let item of item.orderItems">
+                    {{item?.quantity}} x {{item?.itemName}} {{item?.packageName}}
+                </p>
+            </ion-label>
+            <ion-label>
+                <h3 class="menu">{{"order_history_page.ordered_on" | translate}}</h3>
+                <p class="order">{{item?.date |date:' d MMM y'}} {{item?.time}}</p>
+            </ion-label>
+            <ion-label>
+                <h3 class="menu">{{"order_history_page.total_amount" | translate}}</h3>
+                <ion-button class="trans-btn ion-float-right order_btn ion-text-capitalize" (click)="presentAlert(item.id)">
+                    {{"order_history_page.cancel_order" | translate}}
+                </ion-button>
+                <p class="order">{{currency}}{{item?.payment}}</p>
+            </ion-label>
+        </div>
+        <p class="main_heading"> {{"order_history_page.past_order" | translate}}</p>
+        <p *ngIf="data?.past_order?.length == 0 && data?.current_order?.length > 0" class="no_data_p"> {{"order_history_page.no_data" | translate}} </p>
+        <div class="card_div" *ngFor="let item of data?.past_order">
+            <ion-item lines="none" (click)="orderDetail(item.id)">
+
+                <img [src]="item.shop.imagePath +item.shop.image" />
+                <ion-label>
+                    <h3 class="name">{{item?.shop?.name}} <span class="status" slot="end">{{item?.order_status}}</span></h3>
+                    <p class="address">{{item?.shop?.address}}</p>
+                </ion-label>
+            </ion-item>
+
+            <ion-label>
+                <h3 class="menu">{{"order_history_page.items" | translate}} <span class="ion-float-right">{{item?.order_no}}</span></h3>
+                <p class="order" *ngFor="let item of item.orderItems">
+                    {{item?.quantity}} x {{item?.itemName}} {{item?.packageName}}
+                </p>
+            </ion-label>
+            <ion-label>
+                <h3 class="menu">{{"order_history_page.ordered_on" | translate}}</h3>
+                <p class="order">{{item?.date |date:' d MMM y'}} {{item?.time}}</p>
+            </ion-label>
+            <ion-label>
+                <h3 class="menu">{{"order_history_page.total_amount" | translate}}</h3>
+                <p class="order">{{currency}}{{item?.payment}}</p>
+            </ion-label>
+        </div>
+    </div>
+</ion-content>

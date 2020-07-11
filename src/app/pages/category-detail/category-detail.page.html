@@ -1,0 +1,61 @@
+<ion-header no-border>
+
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{data[0]?.categoryName}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cart()">
+        <ion-icon src="../../../assets/icon-image/cart_ic.svg">
+        </ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+
+  <div class="search_div">
+    <ion-searchbar placeholder='{{"store_detail.searchPlace" | translate}}' clearIcon="string" [(ngModel)]="term">
+    </ion-searchbar>
+  </div>
+</ion-header>
+<ion-content class="ion-padding-bottom">
+  <ng-container *ngFor="let item of data  | filter:term">
+    <h3 class="main_lbl">{{item?.name}}
+      <!-- <ion-button class="trans-btn more_btn" (click)="viewMore()">View more
+      </ion-button> -->
+    </h3>
+    <div class="trending_div">
+      <div class="product_div" *ngFor="let it of item?.items">
+        <div class="img_div">
+          <img [src]="it?.imagePath + it?.image">
+
+
+        </div>
+        <h3 class="name">{{it?.name}}</h3>
+        <p class="qunty">{{it.weight}}</p>
+        <div class="btn_div">
+          <div class="qty_div">
+            <ion-button class="add_btn trans-btn" (click)="remove(it)">
+              <ion-icon src="../../../assets/icon-image/minus-sign.svg">
+
+              </ion-icon>
+            </ion-button>
+            <p class="qty_p">
+              {{it?.qty}}
+            </p>
+            <ion-button class="add_btn trans-btn" (click)="AddCart(it)">
+              <ion-icon src="../../../assets/icon-image/plus-signs.svg">
+
+              </ion-icon>
+            </ion-button>
+          </div>
+          <p class="price">{{currency}}{{it?.sell_price}}</p>
+
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+
+</ion-content>

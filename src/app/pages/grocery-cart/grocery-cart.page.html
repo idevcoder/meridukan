@@ -1,0 +1,152 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{"grocery_cart.cart" | translate }}</ion-title>
+    </ion-toolbar>
+    <div class="segment_div">
+        <ion-segment value="upcoming" mode="ios" [(ngModel)]="event" (ionChange)="segmentChanged()">
+            <ion-segment-button value="delivery" mode="ios" [disabled]="store?.delivery_type=='Shop'">
+                <ion-label>{{"grocery_cart.delivery" | translate }}</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="pickup" mode="ios" [disabled]="store?.delivery_type=='Home'">
+                <ion-label>{{"grocery_cart.pickup" | translate }}</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div [ngSwitch]="event" class="ion-margin-horizontal main_div">
+        <div *ngSwitchCase="'delivery'">
+            <div class="card_item" *ngFor="let item of data">
+                <div class="img_div">
+                    <img [src]="item?.imagePath + item?.image">
+                </div>
+                <div class="info_div">
+                    <h3 class="name">{{item?.name}}</h3>
+                    <p class="type">{{item?.brand}}</p>
+                    <div class="price_div">
+                        <p class="type qty">{{item?.weight}}</p>
+                        <div class="add_div">
+                            <p class="price">{{cuurecy}}{{item?.total}}</p>
+                            <div class="btn_div" slot="end">
+                                <ion-button class="add-btn" (click)="minusQty(item)">
+                                    <ion-icon name="remove"></ion-icon>
+                                </ion-button>
+                                <ion-label class="one">
+                                    {{item?.qty}}
+                                </ion-label>
+                                <ion-button class="add-btn" (click)="addtocart(item)">
+                                    <ion-icon name="add" class="add"></ion-icon>
+                                </ion-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="'pickup'">
+            <div class="card_item" *ngFor="let item of data">
+                <div class="img_div">
+                    <img [src]="item?.imagePath + item?.image">
+                </div>
+                <div class="info_div">
+                    <h3 class="name">{{item?.name}}</h3>
+                    <p class="type">{{item?.brand}}</p>
+                    <div class="price_div">
+                        <p class="type qty">{{item?.weight}}</p>
+                        <div class="add_div">
+                            <p class="price">{{cuurecy}}{{item?.total}}</p>
+                            <div class="btn_div" slot="end">
+                                <ion-button class="add-btn" (click)="minusQty(item)">
+                                    <ion-icon name="remove"></ion-icon>
+                                </ion-button>
+                                <ion-label class="one">
+                                    {{item?.qty}}
+                                </ion-label>
+                                <ion-button class="add-btn" (click)="addtocart(item)">
+                                    <ion-icon name="add" class="add"></ion-icon>
+                                </ion-button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <ion-item lines="none" (click)="applyCoupon()" class="couponItem" detail>
+        <h3 slot="start" class="combo">
+            <ion-icon src="assets/icon-image/persentage.svg"></ion-icon> {{"grocery_cart.apply_coupon" | translate }}
+        </h3>
+
+    </ion-item>
+    <div class="devider_div">
+
+    </div>
+    <div class="bill_detail ion-margin-horizontal">
+        <h3 class="combo">
+            {{"grocery_cart.bill_details" | translate }}
+        </h3>
+        <p class="bill_item">
+            {{"grocery_cart.total_payable" | translate }}
+            <span class="ion-float-right">{{cuurecy}}{{totalItem}}</span>
+        </p>
+
+        <p class="total">
+            {{"grocery_cart.total_discount" | translate }}<span
+                class="ion-float-right">-{{cuurecy}}{{data?.discount || 0}}</span>
+        </p>
+
+        <p class="bill_item">
+            {{"grocery_cart.delivery_fee" | translate }}<span
+                class="ion-float-right">{{cuurecy}}{{store?.delivery_charge}}</span>
+        </p>
+
+        <p class="bill_item">
+            {{"grocery_cart.to_pay" | translate }}<span class="ion-float-right">{{cuurecy}}{{data?.toPay}}</span>
+        </p>
+        <div class="saved">
+            <span>{{"grocery_cart.you_have_saved" | translate }} {{cuurecy}}{{data?.discount || 0}}
+                {{"grocery_cart.on_the_bill" | translate }}</span>
+        </div>
+    </div>
+    <div class="devider_div">
+
+    </div>
+    <div class="last_div ion-margin-horizontal">
+        <h3 class="sel_lbl">{{"grocery_cart.select_address" | translate }}</h3>
+
+        <div class="address_div">
+            <div class="pin_div">
+                <ion-icon name="pin"></ion-icon>
+            </div>
+            <div class="adress">
+                <p class="adress_p">
+                    {{data?.Deafult_address?.soc_name}} {{data?.Deafult_address?.street}}
+                    {{data?.Deafult_address?.city}} {{data?.Deafult_address?.zipcode}}
+                </p>
+            </div>
+            <div class="change">
+                <ion-button class="trans-btn change_ad" (click)="change_Address()">
+                    {{"grocery_cart.change_address" | translate }}</ion-button>
+            </div>
+        </div>
+        <div #map id="map">
+            <agm-map [styles]="styles" [latitude]="agmMap.lat" [longitude]="agmMap.lng" [disableDefaultUI]="true">
+                <agm-direction [origin]="origin" [travelMode]="'DRIVING'" [destination]="destination"
+                    [renderOptions]="renderOptions" [markerOptions]="markerOptions">
+                </agm-direction>
+            </agm-map>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-button class="otp_btn" (click)="paymentMethod()">
+        {{"grocery_cart.select_payment_method" | translate }}
+    </ion-button>
+</ion-footer>

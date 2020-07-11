@@ -1,0 +1,11 @@
+ion-content {
+  .filter_lbl {
+    font-size: 16px;
+    color: var(--light-black-color);
+    font-family: "fivo-regular";
+    margin-bottom: 9px;
+  }
+  .active {
+    color: var(--green-color);
+  }
+}

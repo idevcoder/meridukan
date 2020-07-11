@@ -1,0 +1,75 @@
+<ion-header no-border>
+
+    <ion-toolbar mode="md">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{"grocery_history.order_history" | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div no-data *ngIf="data?.current?.length ==0 && data?.past?.length==0">
+        <img src="../../../assets/image/no-data-icon-10.jpg" alt="no data">
+    </div>
+    <div class="ion-margin-horizontal">
+
+        <p class="main_heading" *ngIf="data?.current?.length > 0">{{"grocery_history.current" | translate }}</p>
+        <div class="card_div" *ngFor="let item of data?.current">
+            <ion-item lines="none" (click)="orderDetail(item?.id)">
+
+                <img [src]="item.shop.imagePath +item.shop.image" />
+                <ion-label>
+                    <h3 class="name">{{item?.shop?.name}} <span class="status" *ngIf="item?.order_status=='DriverApproved' || item?.order_status=='Approved' ||
+                            item?.order_status=='Prepare'">{{"grocery_history.accepted" | translate }}</span>
+                        <span class="status" *ngIf="item?.order_status=='DriverAtShop' || item?.order_status=='PickUpFood' ||
+                            item?.order_status=='OnTheWay' ||
+                            item?.order_status=='DriverReach'">{{"grocery_history.way" | translate }}</span>
+                        <span class="status" *ngIf=" item?.order_status=='Pending'">{{item?.order_status}}</span>
+                        <span class="status" *ngIf=" item?.order_status=='Delivered'">{{item?.order_status}}</span>
+                        <span class="status" *ngIf=" item?.order_status=='Cancel'">{{item?.order_status}}</span>
+
+                    </h3>
+                    <p class="address">{{item?.shop?.address}}</p>
+                </ion-label>
+            </ion-item>
+            <ion-label>
+                <span class="status">{{item?.delivery_type}}</span>
+            </ion-label>
+
+            <ion-label>
+                <h3 class="menu">{{"grocery_history.order_on" | translate }}</h3>
+                <p class="order order_Date">{{item?.date |date:' d MMM y'}} {{item?.time}}</p>
+            </ion-label>
+            <ion-label>
+                <h3 class="menu">{{"grocery_history.amount" | translate }}</h3>
+                <p class="order">{{currency}}{{item?.payment}}</p>
+            </ion-label>
+        </div>
+        <p class="main_heading" *ngIf="data?.past?.length > 0">{{"grocery_history.past" | translate }}</p>
+        <p *ngIf="data?.past?.length == 0 && data?.current?.length > 0" class="no_data_p">
+            {{"grocery_history.no_data" | translate }}</p>
+        <div class="card_div" *ngFor="let item of data?.past">
+            <ion-item lines="none" (click)="pastDetail(item.id)">
+
+                <img [src]="item.shop.imagePath +item.shop.image" />
+                <ion-label>
+                    <h3 class="name">{{item?.shop?.name}} <span class="status" slot="end">{{item?.order_status}}</span>
+                    </h3>
+                    <p class="address">{{item?.shop?.address}}</p>
+                </ion-label>
+            </ion-item>
+            <ion-label>
+                <span class="status">{{item?.delivery_type}}</span>
+            </ion-label>
+            <ion-label>
+                <h3 class="menu">{{"grocery_history.order_on" | translate }}</h3>
+                <p class="order">{{item?.date |date:' d MMM y'}} {{item?.time}}</p>
+            </ion-label>
+            <ion-label>
+                <h3 class="menu">{{"grocery_history.amount" | translate }}</h3>
+                <p class="order">{{currency}}{{item?.payment}}</p>
+            </ion-label>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons>
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{"forgot_password_page.title" | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-margin-horizontal main_div">
+        <p class="ion-text-center" class="text_p">
+            {{"forgot_password_page.text" | translate}}
+        </p>
+        <form>
+            <ion-item class="dataitem " lines="none">
+                <ion-icon src="assets/icon-image/email-icon.svg" class="icon_img">
+                </ion-icon>
+                <ion-input placeholder="{{'forgot_password_page.email_placeholder' | translate}}" [(ngModel)]="data.email" name="email"></ion-input>
+            </ion-item>
+            <p class="err" *ngIf="err?.email">{{err?.email}}*</p>
+        </form>
+        <ion-button class="otp_btn" (click)="Sendpassword()">
+            {{"forgot_password_page.send_btn" | translate}}
+        </ion-button>
+    </div>
+</ion-content>

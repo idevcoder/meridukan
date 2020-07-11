@@ -1,0 +1,42 @@
+<ion-content>
+    <div class="ion-text-center  logo_div ion-margin-horizontal">
+        <img src="assets/image/logo.png" />
+        <ion-button class="ion-float-left backBtn" fill="clear" (click)="back()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+        </ion-button>
+        <h3 class="logo_text">{{'verify_page.text.txt1' | translate}}</h3>
+        <p class="ion-padding-horizontal msg">
+            {{'verify_page.text.txt1' | translate}} <br /> {{'app_name' | translate}}
+        </p>
+    </div>
+    <div class="number-input">
+        <div class="code-div">
+            <ng-select class="country-codeSelect" [clearable]="false" [(ngModel)]="data.code" [items]="cCode"
+                bindLabel="dial_code" bindValue="dial_code" placeholder="Countr Code">
+                <ng-template ng-label-tmp let-item="item">
+                    <img height="15" width="22"
+                        src="{{'https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/' + (item.code | lowercase) + '.png'}}"
+                        class="img-m" />
+                    <span>{{item.dial_code}}</span>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                    <img height="15" width="22"
+                        src="{{'https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/' + (item.code | lowercase) + '.png'}}"
+                        class="img-m" />
+                    <span>{{item.dial_code}}</span>
+                </ng-template>
+            </ng-select>
+        </div>
+        <div class="number-div">
+            <div class="input-div">
+                <ion-input type="tel" placeholder="Number" [(ngModel)]="data.phone"></ion-input>
+            </div>
+        </div>
+
+        <div class="button-div"></div>
+    </div>
+    <p class="err" *ngIf="err?.phone">{{err?.phone}}*</p>
+    <ion-button class="mainBtn" (click)="getOtp()" Expand="block" shape="round">
+        {{'verify_page.confirm_btn' | translate}}
+    </ion-button>
+</ion-content>

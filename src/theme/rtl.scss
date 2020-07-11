@@ -1,0 +1,181 @@
+[dir="rtl"] {
+    .ion-text-right,
+    [text-right] {
+        text-align: left !important;
+    }
+    .ion-text-left,
+    [text-left] {
+        text-align: right !important;
+    }
+    .ion-float-right,
+    [float-right] {
+        float: left !important;
+    }
+    .ion-float-left,
+    [float-left] {
+        float: right !important;
+    }
+    app-home {
+        .offer {
+            left: initial !important;
+            right: 5px !important;
+        }
+        ion-header {
+            padding: 10px 14px 3px 5px !important;
+        }
+        .locationContent {
+            img {
+                margin-right: 0px !important;
+                margin-left: 8px !important;
+            }
+        }
+        .div_image {
+            padding-right: 0px !important;
+            padding-left: 10px !important;
+        }
+        .heading {
+            margin-left: 0px !important;
+            margin-right: 16px !important;
+        }
+        .point {
+            margin-right: initial !important;
+            margin-left: 3px;
+        }
+        .data_div {
+            ion-icon {
+                margin-right: initial !important;
+                margin-left: 5px !important;
+            }
+        }
+        .feature_row,
+        .slider_div,
+        .offer_div {
+            direction: initial !important;
+        }
+    }
+    app-restaurant-detail {
+        .four {
+            left: 0 !important;
+            right: initial !important;
+        }
+        .tittle {
+            padding-left: 50px !important;
+            padding-right: initial !important;
+        }
+    }
+    app-cart {
+        ion-item {
+            img {
+                margin-left: 10px !important;
+                margin-right: initial !important;
+            }
+        }
+    }
+    app-payment-method {
+        .online {
+            margin-left: 20px !important;
+            margin-right: initial !important;
+        }
+    }
+    app-timeline {
+        .timeline {
+            .dot {
+                left: initial !important;
+                right: -3px !important;
+            }
+            .text {
+                margin-left: initial !important;
+                margin-right: 22px !important;
+            }
+        }
+        .footerBtn,
+        .otherBtn {
+            right: initial !important;
+            left: 0 !important;
+            --border-radius: 0px 50px 50px 0px !important;
+        }
+    }
+    app-notification {
+        .second_col {
+            padding-left: initial !important;
+            padding-right: 10px !important;
+        }
+    }
+    app-order-history {
+        .card_div {
+            ion-label {
+                margin-right: 10px !important;
+                margin-left: initial !important;
+            }
+        }
+    }
+    app-order-detail {
+        .trans-btn {
+            right: initial !important;
+            left: 0 !important;
+        }
+        .first_label {
+            margin-right: 10px !important;
+            margin-left: initial !important;
+        }
+    }
+    .searchbar-search-icon.sc-ion-searchbar-md {
+        left: 18px !important;
+        right: initial !important;
+    }
+    app-profile {
+        .end_btn {
+            left: 0px !important;
+            right: initial !important;
+        }
+    }
+    app-login,
+    app-signup {
+        ion-checkbox {
+            margin-right: initial !important;
+            margin-left: 10px !important;
+        }
+        .last_button {
+            margin-left: initial !important;
+            margin-right: 4px !important;
+        }
+    }
+    ion-menu {
+        .name_div {
+            padding-left: initial !important;
+            padding-right: 20px !important;
+        }
+    }
+    app-category {
+        .div_image {
+            padding-right: initial !important;
+            padding-left: 10px !important;
+        }
+    }
+    app-restaurant-detail {
+        ion-content {
+            .best_seller {
+                ion-col:nth-child(odd) {
+                    padding-right: 0px !important;
+                    padding-left: 9px !important;
+                }
+                ion-col:nth-child(even) {
+                    padding-left: 0px !important;
+                    padding-right: 9px !important;
+                }
+            }
+        }
+    }
+    app-filter {
+        .checkbox-button__control {
+            margin-right: initial !important;
+            margin-left: 12px !important;
+        }
+    }
+    app-popover {
+        .simple_div {
+            margin-right: initial !important;
+            margin-left: 10px !important;
+        }
+    }
+}

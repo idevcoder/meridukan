@@ -1,0 +1,31 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-uppercase">{{"notification_page.title" | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div no-data *ngIf="data?.length == 0">
+        <img src="../../../assets/image/no-data-icon-10.jpg" alt="no data">
+    </div>
+    <div class="ion-margin-horizontal main_div">
+
+        <div class="card_div" *ngFor="let item of data">
+            <div class="first_col">
+                <img [src]="item.imagePath + item.image" />
+            </div>
+            <div class="second_col">
+                <h3 class="tittle">{{item?.title}}</h3>
+                <p class="discount">
+                    {{item?.message}}
+                </p>
+            </div>
+        </div>
+    </div>
+</ion-content>

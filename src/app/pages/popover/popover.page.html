@@ -1,0 +1,12 @@
+<ion-content>
+    <div class="main_div ion-margin">
+        <div class="p_div" *ngFor="let item of data">
+            <div class="simple_div">
+                <div class="square">
+                </div>
+            </div>
+            <p class="detail"> {{item?.name}}
+                <span class="ion-float-right">{{item?.items}}</span></p>
+        </div>
+    </div>
+</ion-content>

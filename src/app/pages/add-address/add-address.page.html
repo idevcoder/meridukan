@@ -1,0 +1,60 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start" (click)="closeModal()">
+            <ion-button>
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title *ngIf="!isEdit">{{"add_edit_address_page.add_title" | translate}}</ion-title>
+        <ion-title *ngIf="isEdit">{{"add_edit_address_page.edit_title" | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="main-container ion-padding">
+        <div class="choose-address-title ion-text-center">
+            {{"add_edit_address_page.address_type" | translate}}
+        </div>
+        <div class="select-addres-div">
+            <ion-row>
+                <ion-col class="ion-text-center" *ngFor="let type of addressType" (click)="setAddressType(type)">
+                    <div class="back-image-div">
+                        <div class="ion-text-center">
+                            {{type.name}}
+                        </div>
+                    </div>
+                    <ion-checkbox class="ion-margin-top" custom-chckbox [disabled]="type.checked" [checked]="type.checked" mode="ios"></ion-checkbox>
+                </ion-col>
+            </ion-row>
+        </div>
+
+        <agm-map [latitude]="agmMap.lat" [longitude]="agmMap.lng">
+
+            <agm-marker [markerDraggable]="true" (dragEnd)="centerChange($event)" [latitude]="agmMap.lat" [longitude]="agmMap.lng">
+
+            </agm-marker>
+        </agm-map>
+        <form #f="ngForm">
+            <div class="input-section">
+                <ion-input input-text name="building" [(ngModel)]="addressData.soc_name" placeholder="Building/Society Name" type="text" required>
+                </ion-input>
+                <p class="err" *ngIf="err?.soc_name">{{err?.soc_name}}*</p>
+                <ion-input input-text name="street" [(ngModel)]="addressData.street" placeholder="Street" type="text" required>
+                </ion-input>
+                <p class="err" *ngIf="err?.street">{{err?.street}}*</p>
+                <ion-input input-text name="city" [(ngModel)]="addressData.city" placeholder="City" type="text" required>
+                </ion-input>
+                <p class="err" *ngIf="err?.city">{{err?.city}}*</p>
+                <ion-input input-text name="zipcode" [(ngModel)]="addressData.zipcode" placeholder="Zip Code" type="text" required>
+                </ion-input>
+                <p class="err" *ngIf="err?.zipcode">{{err?.zipcode}}*</p>
+            </div>
+
+        </form>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-button class="otp_btn" mode="md" expand="block" fill="solid" (click)="saveAddress()">
+        {{"add_edit_address_page.save_btn" | translate}}
+    </ion-button>
+</ion-footer>

@@ -1,0 +1,53 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-uppercase">{{"pay_method_page.title" | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <div class="card_div ion-margin-horizontal">
+        <div class="online" [ngStyle]="{'background-color':online===1? 'var(--ion-color-green)'
+    : 'var(--ion-color-white)' }" (click)="online=1 ;cash=0">
+            <div class="img_div">
+                <img [src]="online==1 ? ' assets/image/online-pay.png' : 'assets/image/credit-cards.png'" />
+                <h3 [ngClass]="online==1 ? 'tittle' : 'cash_heading' ">{{"pay_method_page.online_pay" | translate}}</h3>
+            </div>
+        </div>
+        <div class="cash" [ngStyle]="{'background-color':cash===1? 'var(--ion-color-green)': 'var(--ion-color-white)' }" (click)="online=0;cash=1">
+            <div class="img_div">
+                <img [src]="cash==1 ? 'assets/image/cash.png' : 'assets/image/cash-payment.png'" />
+                <h3 [ngClass]="cash==1 ? 'tittle' : 'cash_heading' ">{{"pay_method_page.cash" | translate}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="card_div ion-margin-horizontal" *ngIf="online==1">
+        <div class="online" (click)="razorPayment=1 ; paypalPayment=0;" [ngStyle]="{'background-color':razorPayment===1? 'var(--ion-color-green)': 'var(--ion-color-white)' }">
+            <div class="img_div">
+                <img src="../../../assets/image/Razorpay_logo.svg" class="pay_img" />
+                <h3 [ngClass]="razorPayment==1 ? 'tittle' : 'cash_heading' ">{{"pay_method_page.razor_pay" | translate}}</h3>
+            </div>
+        </div>
+        <div class="cash" (click)="razorPayment=0; paypalPayment=1" [ngStyle]="{'background-color':paypalPayment===1? 'var(--ion-color-green)': 'var(--ion-color-white)' }">
+            <div class="img_div">
+                <img src="../../../assets/image/paypal_image.png" class="pay_img paypal_img" />
+                <h3 [ngClass]="paypalPayment==1 ? 'tittle' : 'cash_heading' ">{{"pay_method_page.pay_pal" | translate}}</h3>
+            </div>
+        </div>
+    </div>
+    <div>
+
+    </div>
+</ion-content>
+
+<ion-footer>
+    <ion-button class="otp_btn" (click)="paymentMethod()">
+        {{"pay_method_page.continue_btn" | translate}}
+    </ion-button>
+</ion-footer>

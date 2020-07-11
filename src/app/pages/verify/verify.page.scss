@@ -1,0 +1,90 @@
+ion-content {
+  .logo_div {
+    margin-top: 25px;
+
+    .backBtn {
+      --padding-start: 0;
+      --padding-end: 0;
+      width: auto;
+
+      ion-icon {
+        color: var(--ion-color-black) !important;
+        font-size: 24px
+      }
+    }
+
+    .logo_text {
+      font-size: 40px;
+      font-family: "PlayfairDisplay_Bold";
+      color: var(--ion-color-green);
+      margin-top: 10px;
+    }
+
+    .msg {
+      font-family: "Poppins-Regular";
+      font-size: 14px;
+      color: var(--ion-color-darkgray);
+    }
+  }
+
+  .number-input {
+    margin: 0px 16px;
+    margin-top: 32px;
+    background: var(--ion-color-sky);
+    border-radius: 22px;
+    height: 44px;
+    padding: 8px 16px;
+    display: flex;
+    position: relative;
+
+    .code-div {
+      width: 160px;
+      border-right: 1px solid var(--ion-border-color);
+    }
+
+    .number-div {
+      padding-left: 8px;
+
+      .input-div {
+        width: 84%;
+
+        ion-input {
+          font-size: 15px;
+          font-family: "Poppins-Medium";
+          --padding-top: 9px;
+          position: relative;
+          top: -7px;
+        }
+      }
+    }
+
+    .button-div {
+      width: 25px;
+
+      .btn-clear {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        margin-top: 0px;
+      }
+    }
+  }
+
+  .err {
+    margin-left: 16px;
+  }
+}
+
+.mainBtn {
+  margin: 0px 21px;
+  height: 50px;
+  --box-shadow: none;
+  margin-top: 7vh;
+  --background: var(--ion-color-green);
+  font-family: "Poppins-Medium";
+  font-size: 18px;
+}
+
+.img-m {
+  margin-right: 8px;
+  margin-bottom: -2px;
+}

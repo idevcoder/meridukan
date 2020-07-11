@@ -1,0 +1,36 @@
+<ion-header no-border>
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>promocode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div no-data *ngIf="data?.length == 0">
+    <img src="../../../assets/image/no-data-icon-10.jpg" alt="no data">
+  </div>
+  <div class="ion-margin-horizontal main_div">
+
+    <div class="container" *ngFor="let item of data">
+      <section class="left">
+        <div class="promo_div">
+          <img src="assets/image/coopan.png" />
+        </div>
+      </section>
+      <section class="right">
+        <h3 class="tittle">{{item?.shopName}}</h3>
+        <p class="discount">{{item?.description}}</p>
+        <div class="last_div">
+          <div class="coopan_div">
+            <h3 class="coopan">{{item?.name}}</h3>
+          </div>
+          <ion-button class="trans-btn" (click)="applyPromocode(item)">
+            Apply
+          </ion-button>
+        </div>
+      </section>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,397 @@
+{
+  "app_name": "Foodlands",
+  "add_edit_address_page": {
+    "add_title": "إضافة التمكن من تحقيق رضا المواطنين",
+    "edit_title": "تحرير العنوان",
+    "address_type": "اختيار نوع العنوان",
+    "save_btn": "حفظ"
+  },
+  "cancel_order_alert": {
+    "title": "الغاء الطلب",
+    "text": "هل تريد إلغاء هذا الطلب؟",
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "add_card_page": {
+    "title": "إضافة بطاقة",
+    "card_number": "الإعدادات بطاقة",
+    "expiration_date": "تاريخ انتهاء الصلاحية",
+    "cvv": "CVV",
+    "card_holders_name": "المتطلب السابق حامل البطاقة",
+    "add_card": "إضافة بطاقة"
+  },
+  "cancel_order_page": {
+    "title": "لماذا قمت بإلغاء طلبك ؟ "
+  },
+  "cart_page": {
+    "title": "عربة",
+    "apply_coupon": "تطبيق القسيمة",
+    "bill_details": "تفاصيل الفاتورة",
+    "item_total": "البند مجموع",
+    "total_discount": "مجموع الخصم",
+    "restaurant_charges": "مطعم رسوم",
+    "delivery_fee": "رسوم التوصيل",
+    "cancellation_fee": "رسوم الإلغاء",
+    "to_pay": "لدفع",
+    "saved_text": {
+      "txt1": "قمت بحفظها",
+      "txt2": "على مشروع القانون"
+    },
+    "select_address": "حدد التمكن من تحقيق رضا المواطنين",
+    "change_address_btn": "تغيير العنوان",
+    "select_pay_method": "حدد طريقة الدفع"
+  },
+  "category_page": {
+    "title": "قائمة مطعم",
+    "min": "مين",
+    "for_two": "لمدة سنتين"
+  },
+  "filter_page": {
+    "title": "المرشحات",
+    "apply_btn": "تطبيق عامل تصفية",
+    "Top Rated": "أعلى التقييمات",
+    "Open Now": "مفتوح الان",
+    "Nearest Me": "أقرب لي",
+    "Most Popular": "الأكثر شعبية",
+    "Cost High to Low": "التكلفة من الأعلى إلى الأقل",
+    "Cost Low to High": "التكلفة منخفضة إلى عالية"
+  },
+  "forgot_password_page": {
+    "title": "نسيت كلمة المرور",
+    "text": "أدخل البريد واتساب الخاص بك وسوف نرسل لك تعليمات حول كيفية إعادة تعيينها",
+    "send_btn": "إرسال",
+    "email_placeholder": "البريد واتساب"
+  },
+  "otp_page": {
+    "enter_otp_text": "أدخل رمز مدير مكتب المدعي العام هنا",
+    "resend_btn": "إعادة الإرسال ؟ ",
+    "confirm_btn": "تأكيد"
+  },
+  "home_page": {
+    "restaurant": "مطعم",
+    "filter": "المرشحات",
+    "offer": "نقدم",
+    "min": "مين",
+    "for_two": "لمدة سنتين",
+    "popular_this_week": "شعبية هذا الأسبوع",
+    "no_data": "لا إطلاق النار بيانات",
+    "pocket_friendly": "جيب ودية",
+    "Most Popular": "الأكثر شعبية",
+    "Great Offers": "عروض رائعة",
+    "Pure Veg Places": "أماكن نباتية خالصة",
+    "Pocket Friendly": "ودية الجيب",
+    "Nearest Me": "أقرب لي",
+    "food": "طعام",
+    "grocery": "بقالة",
+    "store": "متجر",
+    "categories": "التصنيفات",
+    "view_more": "عرض المزيد"
+  },
+  "invite_Friends_page": {
+    "title": "دعوة الأصدقاء",
+    "text": "عندما صديقك تثبيت التطبيق الخاص بك مع رمز الإحالة و أمر واحد معا شؤون الدولة ، وسوف كل أغاني أمر واحد مجانا",
+    "referral_code": "إحالة قانون",
+    "invite_btn": "دعوة أصدقائك"
+  },
+  "item_review_page": {
+    "title": "استعراض"
+  },
+  "login_page": {
+    "title": "تسجيل الدخول",
+    "placeholder": {
+      "email": "البريد واتساب",
+      "password": "كلمة المرور"
+    },
+    "remember_me": "تذكر لي",
+    "forgot_password_btn": "نسيت كلمة المرور ؟ ",
+    "sign_in_btn": "تسجيل الدخول",
+    "new_user_txt": "إذا كنت جديدا المستخدم ؟ ",
+    "sign_up_btn": "التوقيع"
+  },
+  "register_page": {
+    "title": "التوقيع",
+    "placeholder": {
+      "name": "المتطلب السابق",
+      "email": "البريد واتساب",
+      "password": "كلمة المرور",
+      "confirm_password": "تأكيد كلمة المرور",
+      "referral_code": "إحالة قانون"
+    },
+    "sign_up_btn": "التوقيع",
+    "already_have_account_txt": "تفاصيل البيع و الشراء لديك حساب ؟ ",
+    "sign_in_btn": "تسجيل الدخول"
+  },
+  "notification_page": {
+    "title": "إعلام"
+  },
+  "order_detail_page": {
+    "title": "و قد أجل التفاصيل",
+    "order_summary": "و قد أجل صيفي",
+    "restaurant_accepted": "مطعم قبول",
+    "on_the_way": "على الطريق",
+    "order_status": "حالة الطلب",
+    "bill_detail": "تفاصيل الفاتورة",
+    "item_total": "البند مجموع",
+    "promo_code": "رمز ترويجي",
+    "del_charge": "رسوم التوصيل",
+    "rest_charge": "مطعم تهمة",
+    "total": "مجموع",
+    "your_total_saving": "إجمالي الادخار",
+    "rate_meal": "سعر وجبة",
+    "rate_delivery_boy": "معدل تسليم الصبي",
+    "restaurant_review": "مطعم استعراض",
+    "submit": "تقدم",
+    "Item Review": "البند استعراض"
+  },
+  "order_history_page": {
+    "title": "و قد أجل التاريخ",
+    "current_order": "النظام الحالي",
+    "restaurant_accepted": "تم قبول المطعم",
+    "on_the_way": "على الطريق",
+    "items": "البنود",
+    "ordered_on": "أمر على",
+    "total_amount": "المبلغ الإجمالي",
+    "cancel_order": "إلغاء النظام",
+    "past_order": "الماضي و قد أجل",
+    "no_data": "لا إطلاق النار بيانات"
+  },
+  "pay_method_page": {
+    "title": "طريقة الدفع",
+    "online_pay": "الدفع عبر الإنترنت",
+    "cash": "النقدية",
+    "razor_pay": "أسلاك شائكة تدفع",
+    "pay_pal": "باي بال",
+    "continue_btn": "تواصل"
+  },
+  "profile_page": {
+    "edit": "تحرير",
+    "language": "لغة",
+    "english": "English",
+    "arabic": "عربى",
+    "okay_text": "حسنا",
+    "cancel_text": "إلغاء",
+    "segment": {
+      "reviews": "استعراض",
+      "photos": "الصور",
+      "edit_profile": "تعديل الملف الشخصي",
+      "setting": "الإعداد",
+      "change_password": "تغيير كلمة المرور"
+    },
+    "no_data": "لا إطلاق النار بيانات",
+    "placeholder": {
+      "name": "المتطلب السابق",
+      "email": "البريد واتساب",
+      "phone_number": "الإعدادات الهاتف",
+      "location": "الموقع",
+      "new_password": "كلمة المرور الجديدة",
+      "confirm_password": "تأكيد كلمة المرور"
+    },
+    "notification": "إعلام",
+    "location": "الموقع",
+    "call": "صيدلي",
+    "default_address": "العنوان الافتراضي",
+    "change": "تغيير",
+    "save_btn": "حفظ"
+  },
+  "promo_code_page": {
+    "title": "الرمز الترويجي",
+    "apply_btn": "تطبيق"
+  },
+  "restaurant_detail_page": {
+    "review": "استعراض",
+    "open_now": "مفتوحة الآن بالضغط",
+    "mon_to_sun": "الإثنين إلى الأحد",
+    "rating": "تصنيف",
+    "mins": "دقيقة",
+    "delivery_time": "التسليم في الوقت المحدد",
+    "for_two": "لمدة سنتين",
+    "off": "قبالة",
+    "veg_only": "الخضار فقط",
+    "non_veg": "الف الخضار",
+    "best_sellers": "أفضل الكتب مبيعا",
+    "no_data": "لا إطلاق النار بيانات",
+    "exclusive": "حصري",
+    "add": "إضافة",
+    "special_combo": "التحرير والسرد الخاص",
+    "votes": "الأصوات",
+    "menu": "القائمة",
+    "view_cart": "عرض السلة",
+    "item": "البند"
+  },
+  "review_page": {
+    "review": "استعراض",
+    "open_now": "مفتوحة الآن بالضغط",
+    "mon_to_sun": "الإثنين إلى الأحد",
+    "rating": "تصنيف",
+    "mins": "دقيقة",
+    "delivery_time": "التسليم في الوقت المحدد",
+    "for_two": "لمدة سنتين",
+    "off": "قبالة",
+    "photos": "الصور",
+    "no_data": "لا إطلاق النار بيانات",
+    "was_helpful": "كان هذا مفيدا ؟ ",
+    "no": "لا",
+    "yes": "نعم"
+  },
+  "select_address_page": {
+    "title": "حدد التمكن من تحقيق رضا المواطنين",
+    "edit": "تحرير",
+    "delete": "حذف",
+    "set_address": "تعيين التمكن من تحقيق رضا المواطنين"
+  },
+  "success_modal": {
+    "congratulations": "تهانينا",
+    "text": "النظام الخاص بك هو إرسال إلى المطعم",
+    "thank_you": "شكرا لك"
+  },
+  "timeline_page": {
+    "title": "حالة الطلب",
+    "text": "الخاص بك يجري إعداد رئيس و في انتظار المتسابق",
+    "order_no": "النظام لا:",
+    "del_text": {
+      "txt1": "تسليم شريك",
+      "txt2": "على الطريق الأوامر الخاصة بك في أقرب وقت ممكن تسليمها"
+    },
+    "view_order": "عرض الطلب",
+    "status": {
+      "order_confirm": "و قد أجل تأكيد",
+      "food_prepared": "يجري إعداد رئيس",
+      "rider_pickup_order": "متسابق صغيرة طلبك",
+      "food_on_the_way": "الغذاء هو على الطريق",
+      "rider_near_your_place": "متسابق بالقرب من المكان و لا حاجة",
+      "delivered": "سلمت"
+    },
+    "cancel_order": "إلغاء النظام"
+  },
+  "verify_page": {
+    "text": {
+      "txt1": "لقد أرسلت لك رسالة SMS مع رمز",
+      "txt2": "إلى تفصيلها بين هاتفك"
+    },
+    "confirm_btn": "تأكيد"
+  },
+  "slider": {
+    "slide1": {
+      "slide_name": {
+        "txt1": "اكتشاف مطعم",
+        "txt2": "بالقرب من قبلك و لا حاجة",
+        "slide_info": "نحن تجعل من السهل العثور على الطعام فقط أدخل العنوان الخاص بك كما تفعل بقية"
+      },
+      "slide_info": "نجعل من السهل العثور على طعام لك فقط أدخل عنوانك وقم بالباقي"
+    },
+    "slide2": {
+      "slide_name": {
+        "txt1": "مطعم منزلك",
+        "txt2": "تسليم فوري",
+        "slide_info": "ونحن نقدم خدمة من الباب إلى الباب في الوقت الخاص بك مع أفضل نوعية من المواد الغذائية"
+      },
+      "slide_info": "نحن نقدم خدمة من الباب إلى الباب في وقتك مع أفضل جودة للطعام"
+    },
+    "slide3": {
+      "slide_name": {
+        "txt1": "بيك اب التسليم",
+        "txt2": "مع ابتسامة حلوة",
+        "slide_info": "نحن جعل ترتيب المواد الغذائية سريعة وبسيطة مجانا-لا يهم إذا كان النظام الخاص بك عبر الإنترنت أو نقدا"
+      },
+      "slide_info": "نجعل طلب الطعام سريعًا وبسيطًا ومجانيًا - لا يهم إذا كان طلبك عبر الإنترنت أو نقدًا"
+    },
+    "skip": "تخطي"
+  },
+  "side_menu": {
+    "Home": "الصفحة الرئيسية",
+    "Notification": "تنبيه",
+    "Promo Code": "رمز ترويجي",
+    "Invite Friends": "ادعو أصدقاء",
+    "Order History": "تاريخ الطلب",
+    "Logout": "تسجيل خروج",
+    "Setting": "ضبط",
+    "Grocery Order": "طلب بقالة"
+  },
+  "toasts": {
+    "logged_in_success": "تم تسجيل دخولك بنجاح",
+    "address_update": "تم تحديث العنوان",
+    "order_is_out_range": "الطلب خارج نطاق المنطقة",
+    "review_add_success": "تمت إضافة مراجعة العنصر بنجاح",
+    "shop_review_add_success": "تمت إضافة مراجعة المتجر بنجاح",
+    "driver_review_add_success": "تمت إضافة مراجعة برنامج التشغيل بنجاح",
+    "payment_not_possible": "لا يمكن الدفع",
+    "setting_set_success": "تم تعيين الإعداد الخاص بك بنجاح",
+    "profile_set_success": "حفظ ملف التعريف الخاص بك بنجاح",
+    "cart_empty": "عربة التسوق فارغة",
+    "select_default_address": "حدد العنوان الافتراضي"
+  },
+  "store_detail": {
+    "today": "اليوم",
+    "store": "متجر",
+    "product": "المنتج",
+    "view_more": "عرض المزيد",
+    "votes": "الأصوات",
+    "category": "الفئة",
+    "review": "مراجعة",
+    "add_in_cart": "أضف في سلة التسوق",
+    "searchPlace": "ابحث عن المطعم والأطباق"
+  },
+  "grocery_cart": {
+    "cart": "عربة التسوق",
+    "delivery": "توصيل",
+    "pickup": "امسك",
+    "bill_details": "تفاصيل الفاتورة",
+    "total_payable": "إجمالي المدفوعات",
+    "total_discount": "إجمالي الخصم",
+    "delivery_fee": "رسوم التوصيل",
+    "to_pay": "باو",
+    "you_have_saved": "لقد قمت بحفظ",
+    "on_the_bill": "على مشروع قانون",
+    "select_address": "حدد العنوان",
+    "change_address": "تغيير العنوان",
+    "select_payment_method": "اختار طريقة الدفع",
+    "apply_coupon": "تطبيق قسيمة"
+  },
+  "pay_method": {
+    "payment_method": "طريقة الدفع او السداد",
+    "cash": "السيولة النقدية",
+    "online_pay": "الدفع عبر الإنترنت",
+    "razor_pay": "الحلاقة الدفع",
+    "PayPal": "باي بال",
+    "pay": "دفع"
+  },
+  "grocery_success": {
+    "CONGRATULATIONS": "تهانينا",
+    "msg": " يتم إرسال طلبك إلى المتجر ",
+    "ty": "شكرا جزيلا"
+  },
+  "grocery_status": {
+    "order_status": "حالة الطلب",
+    "view_order": "مشاهدة الطلب",
+    "order_confirm": " اجل تأكيد",
+    "ready": "البقالة جاهزة في المتجر",
+    "delivery": "البقالة جاهزة في المتجر",
+    "place": "الطلب بالقرب من مكانك",
+    "delivered": "تم التوصيل"
+  },
+  "grocer_order_detail": {
+    "order_detail": "تفاصيل الطلب",
+    "order_summery": "ملخص الطلب",
+    "accepted": "متجر مقبول",
+    "way": "علي الطريق",
+    "BILL_DETAILS": "تفاصيل الفاتورة",
+    "total": "مجموع الاشياء",
+    "code": "رمز ترويجي",
+    "charge": "رسوم التوصيل",
+    "Total": "مجموع",
+    "saving": "مجموع المدخرات الخاصة بك",
+    "Delivered": "تم التوصيل",
+    "review": "مراجعة الطلب",
+    "Submit": "إرسال"
+  },
+  "grocery_history": {
+    "order_history": "تاريخ الطلب",
+    "current": "الطلب الحالي",
+    "accepted": "متجر مقبول",
+    "way": "علي الطريق",
+    "order_on": "أمر علىN",
+    "amount": "المبلغ الإجمالي",
+    "past": "أمر سابق",
+    "no_data": "لايوجد بيانات"
+  }
+}

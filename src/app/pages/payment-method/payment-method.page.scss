@@ -1,0 +1,74 @@
+ion-content {
+  .card_div {
+    display: flex;
+    margin-top: 40px;
+    .online {
+      height: 100px;
+      width: 47%;
+      border-radius: 5px;
+      box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.16);
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .cash {
+      height: 100px;
+      width: 47%;
+      border-radius: 5px;
+      box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.16);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .img_div {
+      .tittle {
+        font-size: 12px;
+        font-family: "Poppins-Medium";
+        color: var(--ion-color-white);
+        margin: 0px;
+        text-align: center;
+      }
+
+      img {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 10px;
+      }
+      .cash_heading {
+        color: var(--ion-color-green);
+        font-size: 12px;
+        font-family: "Poppins-Medium";
+        margin: 0px;
+        text-align: center;
+      }
+      .pay_img {
+        width: 80px;
+      }
+    }
+  }
+
+  ion-item {
+    margin-top: 40px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.16);
+    .lbl_visa {
+      font-size: 22px;
+      font-family: "Poppins-Medium";
+      color: var(--ion-color-green);
+    }
+    ion-input {
+      font-size: 18px;
+      font-family: "Poppins-Medium";
+      color: var(--ion-color-green);
+    }
+    ion-icon {
+      color: var(--ion-color-green);
+      align-self: flex-end;
+    }
+  }
+  .paypal_img {
+    margin-top: 14px !important;
+    height: 17px !important;
+    margin-bottom: 28px !important;
+  }
+}

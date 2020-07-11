@@ -1,0 +1,36 @@
+<ion-content>
+    <ion-slides pager>
+
+        <ion-slide>
+            <div class="img_div">
+                <img src="assets/image/slide-first.png">
+                <h3 class="slide_name"> {{'slider.slide1.slide_name.txt1' | translate}} <br> {{'slider.slide1.slide_name.txt2' | translate}}</h3>
+                <p class="slide_info"> {{'slider.slide1.slide_info' | translate}}
+                </p>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="img_div">
+                <img src="assets/image/slide-second.png">
+                <h3 class="slide_name"> {{'slider.slide2.slide_name.txt1' | translate}} <br> {{'slider.slide2.slide_name.txt2' | translate}} </h3>
+                <p class="slide_info"> {{'slider.slide2.slide_info' | translate}}
+                </p>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="img_div">
+                <img src="assets/image/slide-last.png">
+                <h3 class="slide_name"> {{'slider.slide3.slide_name.txt1' | translate}} <br> {{'slider.slide3.slide_name.txt2' | translate}} </h3>
+                <p class="slide_info">
+                    {{'slider.slide3.slide_info' | translate}}
+                </p>
+            </div>
+        </ion-slide>
+
+    </ion-slides>
+    <ion-button class="skip ion-float-right" (click)="home()">
+        {{'slider.skip' | translate}}
+    </ion-button>
+</ion-content>

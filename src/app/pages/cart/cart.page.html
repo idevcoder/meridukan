@@ -1,0 +1,97 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-uppercase">{{"cart_page.title" | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item class="item_div" lines="none">
+        <img [src]="data?.imagePath + data?.image" />
+        <ion-label>
+            <h3 class="name">{{data?.name}}</h3>
+            <p class="adress">{{data?.address}}</p>
+        </ion-label>
+    </ion-item>
+    <ion-item lines="none" class="combo_item" *ngFor="let item of data?.cartData">
+        <h3 class="combo">
+            <span class="item_span">{{item?.name}}</span>
+        </h3>
+        <span class="price ion-float-right" slot="end">{{currency}}{{item?.price}}</span>
+        <div class="btn_div" slot="end">
+            <ion-button class="add-btn" (click)="minusQty(item)">
+                <ion-icon name="remove"></ion-icon>
+            </ion-button>
+            <ion-label class="one">
+                {{item?.qty}}
+            </ion-label>
+            <ion-button class="add-btn" (click)="addtocart(item)">
+                <ion-icon name="add" class="add"></ion-icon>
+            </ion-button>
+        </div>
+    </ion-item>
+    <ion-item lines="none" (click)="applyCoupon()">
+        <h3 slot="start" class="combo">
+            <ion-icon src="assets/icon-image/persentage.svg"></ion-icon> {{"cart_page.apply_coupon" | translate}}
+        </h3>
+        <ion-icon class="direction" name="ios-arrow-forward" slot="end"></ion-icon>
+    </ion-item>
+    <div class="devider"></div>
+    <div class="bill_detail ion-margin-horizontal">
+        <h3 class="combo">
+            {{"cart_page.bill_details" | translate}}
+        </h3>
+        <p class="bill_item">
+            {{"cart_page.item_total" | translate}}
+            <span class="ion-float-right">{{currency}}{{totalItem}}</span>
+        </p>
+
+        <p class="total">
+            {{"cart_page.total_discount" | translate}}<span class="ion-float-right">-{{currency}}{{data?.discount}}</span>
+        </p>
+        <p class="bill_item">
+            {{"cart_page.restaurant_charges" | translate}}<span class="ion-float-right">{{currency}}{{data?.rastaurant_charge}}</span>
+        </p>
+        <p class="bill_item">
+            {{"cart_page.delivery_fee" | translate}}<span class="ion-float-right">{{currency}}{{data?.delivery_charge}}</span>
+        </p>
+        <p class="bill_item cancel_fee">
+            {{"cart_page.cancellation_fee" | translate}}<span class="ion-float-right">{{currency}}{{data?.cancle_charge}}</span>
+        </p>
+        <p class="bill_item">
+            {{"cart_page.to_pay" | translate}}<span class="ion-float-right">{{currency}}{{data?.toPay}}</span>
+        </p>
+        <div class="saved">
+            <span>{{"cart_page.saved_text.txt1" | translate}} {{currency}}{{data?.discount}} {{"cart_page.saved_text.txt2" | translate}}</span>
+        </div>
+    </div>
+    <div class="devider"></div>
+    <div class="last_div ion-margin-horizontal">
+        <h3 class="combo">{{"cart_page.select_address" | translate}}</h3>
+
+        <div class="address_div">
+            <div class="pin_div">
+                <ion-icon name="pin"></ion-icon>
+            </div>
+            <div class="adress">
+                <p class="adress_p">
+                    {{data?.Deafult_address?.soc_name}} {{data?.Deafult_address?.street}} {{data?.Deafult_address?.city}} {{data?.Deafult_address?.zipcode}}
+                </p>
+            </div>
+            <div class="change">
+                <ion-button class="trans-btn change_ad" (click)="change_Address()">{{"cart_page.change_address_btn" | translate}}</ion-button>
+            </div>
+        </div>
+        <div #map id="map"></div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-button class="otp_btn" (click)="payment_method()">
+        {{"cart_page.select_pay_method" | translate}}
+    </ion-button>
+</ion-footer>

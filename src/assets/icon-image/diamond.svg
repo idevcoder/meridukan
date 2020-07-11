@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.05" height="28.423" viewBox="0 0 28.05 28.423">
+  <g id="diamond" transform="translate(-3.358)">
+    <g id="Group_4893" data-name="Group 4893" transform="translate(3.358 6.657)">
+      <g id="Group_4892" data-name="Group 4892">
+        <path id="Path_1006" data-name="Path 1006" d="M31.269,125.583l-4.841-5.477a.555.555,0,0,0-.416-.188H8.754a.555.555,0,0,0-.416.188L3.5,125.583a.555.555,0,0,0,.053.787l0,0L16.968,141.5a.555.555,0,0,0,.831,0l13.414-15.123,0,0a.555.555,0,0,0,.053-.787Zm-6.241-4.555-2.467,3.977-3.954-3.977ZM21.383,125.4h-8l4-4.024Zm-5.224-4.367-3.954,3.977-2.467-3.977Zm-7.491.381,2.473,3.986h-6Zm-3.514,5.1h6.561l4.532,12.505Zm13.387,12.482,3.166-8.57a.555.555,0,0,0-1.041-.385l-3.277,8.87-4.493-12.4H29.613ZM23.626,125.4l2.473-3.986,3.523,3.986Z" transform="translate(-3.358 -119.918)" fill="#94b92d"/>
+      </g>
+    </g>
+    <g id="Group_4895" data-name="Group 4895" transform="translate(16.828)">
+      <g id="Group_4894" data-name="Group 4894">
+        <path id="Path_1007" data-name="Path 1007" d="M246.555,0A.555.555,0,0,0,246,.555v2.86a.555.555,0,0,0,1.11,0V.555A.555.555,0,0,0,246.555,0Z" transform="translate(-246)" fill="#140056"/>
+      </g>
+    </g>
+    <g id="Group_4897" data-name="Group 4897" transform="translate(19.469 2.032)">
+      <g id="Group_4896" data-name="Group 4896">
+        <path id="Path_1008" data-name="Path 1008" d="M296.534,36.758a.555.555,0,0,0-.785,0l-2.022,2.022a.555.555,0,0,0,.785.785l2.022-2.022A.555.555,0,0,0,296.534,36.758Z" transform="translate(-293.564 -36.595)" fill="#140056"/>
+      </g>
+    </g>
+    <g id="Group_4899" data-name="Group 4899" transform="translate(12.058 2.032)">
+      <g id="Group_4898" data-name="Group 4898">
+        <path id="Path_1009" data-name="Path 1009" d="M163.031,38.78l-2.022-2.022a.555.555,0,1,0-.785.785l2.022,2.022a.555.555,0,1,0,.785-.785Z" transform="translate(-160.061 -36.595)" fill="#140056"/>
+      </g>
+    </g>
+    <g id="Group_4901" data-name="Group 4901" transform="translate(21.349 14.343)">
+      <g id="Group_4900" data-name="Group 4900" transform="translate(0)">
+        <circle id="Ellipse_16" data-name="Ellipse 16" cx="0.555" cy="0.555" r="0.555" fill="#140056"/>
+      </g>
+    </g>
+  </g>
+</svg>

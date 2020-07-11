@@ -1,0 +1,127 @@
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+    <ion-header no-border="no-border">
+        <ion-toolbar [style.backgroundColor]="state == 1 ? '' : 'rgba(0,0,0,0.7)'" mode="md">
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+            </ion-buttons>
+            <ion-buttons slot="end">
+                <ion-button fill="clear" mode="md" (click)="addBookmark()">
+                    <ion-icon class="bookmark-icon" *ngIf="!data?.favourite" src="../../../assets/icon-image/detail-icon.svg"></ion-icon>
+                    <ion-icon class="bookmark-icon" *ngIf="data?.favourite" src="../../../assets/icon-image/bookmark-icon.svg"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+    <div class="img_div">
+        <img [src]="data?.imagePath + data?.image" />
+        <div class="name_div">
+            <h3 class="name">
+                {{data?.name}}
+            </h3>
+        </div>
+    </div>
+
+    <div class="menu_div ion-margin-horizontal">
+        <div class="four">
+            <div class="first_div">
+                <span>{{data?.rate}}</span>
+            </div>
+            <div class="last_div">
+                <h3 class="ascii">{{data?.totalReview}}</h3>
+                <h3 class="review">{{'review_page.review' | translate}}</h3>
+            </div>
+        </div>
+        <h3 class="tittle">{{data?.itemNames}}</h3>
+        <p class="address">{{data?.address}}</p>
+        <p class="open">
+            {{'review_page.open_now' | translate}}
+            <span>- {{data?.open_time}}-{{data?.close_time}}
+                {{'review_page.mon_to_sun' | translate}}</span>
+        </p>
+    </div>
+    <div class="rating_div ion-margin-horizontal">
+        <div class="first_col">
+            <h3 class="rate">
+                <ion-icon name="star"></ion-icon>
+                {{data?.rate}}
+            </h3>
+            <h3 class="rating">5000+ {{'review_page.rating' | translate}}</h3>
+        </div>
+        <div class="first_col ion-text-center dot_div">
+            <div class="dot"></div>
+        </div>
+        <div class="first_col">
+            <h3 class="rate">{{data?.delivery_time}} {{'review_page.mins' | translate}}</h3>
+            <h3 class="rating">{{'review_page.delivery_time' | translate}}</h3>
+        </div>
+        <div class="first_col ion-text-center dot_div">
+            <div class="dot"></div>
+        </div>
+        <div class="first_col">
+            <h3 class="rate">{{currency}}{{data?.avarage_plate_price}}</h3>
+            <h3 class="rating">{{'review_page.for_two' | translate}}</h3>
+        </div>
+    </div>
+    <div class="coopan_div">
+        <div class="container" *ngFor="let item of data?.coupon">
+            <section class="left">
+                <p class="left_p">{{item?.discount}}% {{'review_page.off' | translate}}</p>
+            </section>
+            <section class="right">
+                <p class="right_p">{{item?.description}}</p>
+            </section>
+        </div>
+    </div>
+
+    <p class="about_p ion-padding-horizontal">
+        {{data?.description}}
+    </p>
+
+    <div class="photo_div ion-margin-start">
+        <p class="p_text">
+            {{'review_page.photos' | translate}}
+        </p>
+        <p *ngIf="data?.gallery?.length==0" class="no_data_p">{{'review_page.no_data' | translate}}</p>
+        <div class="gallary_img">
+
+            <img [src]="item.imagePath + item.image" *ngFor="let item of data?.gallery" />
+        </div>
+    </div>
+
+    <div class="review_div ">
+        <p class="p_text ion-padding-start">
+            {{'review_page.review' | translate}}
+        </p>
+        <p *ngIf="data?.review?.length==0" class="ion-padding-start no_data_p"> {{'review_page.no_data' | translate}}</p>
+        <ion-item class="review_item" *ngFor="let item of data?.review" lines="none">
+            <ion-avatar slot="start">
+                <img [src]="item.customer.imagePath + item.customer.image" />
+            </ion-avatar>
+            <ion-label>
+                <ion-icon [class]="item.rate >= 5 ? 'first_icon hydrated ion-float-right' :
+                                       'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <ion-icon [class]="item.rate >= 4 ? 'first_icon hydrated ion-float-right' :
+                                          'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <ion-icon [class]="item.rate >= 3 ? 'first_icon hydrated ion-float-right' :
+                                              'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <ion-icon [class]="item.rate >= 2 ? 'first_icon hydrated ion-float-right' :
+                                                  'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <ion-icon [class]="item.rate >= 1 ? 'first_icon hydrated ion-float-right' :
+                                                      'last_icon hydrated ion-float-right'" name="star"></ion-icon>
+                <h3 class="name">{{item?.customer?.name}}</h3>
+
+                <h3 class="ago">{{ item?.created_at}}</h3>
+                <p class="detail">{{item?.message}}</p>
+                <div class="yes_div" *ngIf="item?.status">
+                    <p class="yes_p">
+                        {{'review_page.was_helpful' | translate}}
+                        <ion-button class="no_btn ion-float-right ion-text-capitalize">{{'review_page.no' | translate}}</ion-button>
+                        <ion-button class="yes_btn ion-float-right ion-text-capitalize">{{'review_page.yes' | translate}}</ion-button>
+                    </p>
+                </div>
+            </ion-label>
+        </ion-item>
+
+    </div>
+</ion-content>

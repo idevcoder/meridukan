@@ -1,0 +1,158 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-uppercase">{{"order_detail_page.title" | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button> </ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-margin-horizontal">
+        <p class="main_heading">{{"order_detail_page.order_summary" | translate}}</p>
+        <div class="card_div">
+            <ion-item lines="none">
+                <img [src]="data?.shop?.imagePath + data?.shop?.image" />
+                <ion-label class="first_label">
+                    <h3 class="name">{{data?.shop?.name}}<span class="status" *ngIf="data?.order_status=='DriverApproved' || data?.order_status=='Approved' || data?.order_status=='Prepare'">{{"order_detail_page.restaurant_accepted" | translate}}</span>
+                        <span class="status" *ngIf="data?.order_status=='DriverAtShop' || data?.order_status=='PickUpFood' || data?.order_status=='OnTheWay' || data?.order_status=='DriverReach'">{{"order_detail_page.on_the_way" | translate}}</span>
+                        <span class="status" *ngIf=" data?.order_status=='Pending'">{{data?.order_status}}</span>
+                        <span class="status" *ngIf=" data?.order_status=='Delivered'">{{data?.order_status}}</span>
+                        <span class="status" *ngIf=" data?.order_status=='Cancel'">{{data?.order_status}}</span>
+                    </h3>
+                    <p class="address">{{data?.shop?.address}}</p>
+                </ion-label>
+                <ion-button class="trans-btn" (click)="orderStatus(data?.id)" *ngIf="data?.order_status != 'Cancel' && data?.order_status !='Delivered'">{{"order_detail_page.order_status" | translate}}
+                </ion-button>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-label>
+                    <h3 class="menu">{{"order_detail_page.bill_detail" | translate}}<span class="ion-float-right">{{data?.order_no}}</span></h3>
+                    <p class="order" *ngFor="let item of data?.orderItems">
+                        {{item?.quantity}} X {{item?.itemName}} {{item?.packageName}}
+                        <span class="ion-float-right"> {{currency}}{{item?.price}}</span>
+                    </p>
+                </ion-label>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-label>
+                    <p class="order">
+                        {{"order_detail_page.item_total" | translate}}
+                        <span class="ion-float-right">{{currency}}{{this.itemtotal}}</span>
+                    </p>
+                    <p class="promocode order">
+                        {{"order_detail_page.promo_code" | translate}} ({{"app_name" | translate}})<span class="ion-float-right">
+              -{{currency}}{{data?.coupon_price}}</span>
+                    </p>
+                    <p class="order">
+                        {{"order_detail_page.del_charge" | translate}}<span class="ion-float-right">
+              {{currency}}{{data?.delivery_charge}}
+            </span>
+                    </p>
+                    <p class="order">
+                        {{"order_detail_page.rest_charge" | translate}}<span class="ion-float-right">
+              {{currency}}{{data?.shop_charge}}
+            </span>
+                    </p>
+                </ion-label>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-label>
+                    <p class="promocode order">
+                        {{"order_detail_page.total" | translate}} <span class="ion-float-right">{{currency}}{{data?.payment}}</span>
+                    </p>
+                </ion-label>
+            </ion-item>
+            <ion-item lines="none" class="last_item">
+                <ion-label>
+                    <p class="saving order">
+                        {{"order_detail_page.your_total_saving" | translate}}<span class="ion-float-right">{{currency}}{{data?.coupon_price}}</span>
+                    </p>
+                </ion-label>
+            </ion-item>
+        </div>
+    </div>
+    <div class="review_div" *ngIf="data?.order_status=='Delivered'">
+        <div class="btn_div ion-margin-horizontal">
+            <ion-button fill="outline" [class]="item_review == 1 ? 'delivery_btn hydrated' : 'rate_meal hydrated button-outline'" (click)="item_review=1; delivery_rate=0"> {{"order_detail_page.rate_meal" | translate}}</ion-button>
+            <ion-button fill="outline" [class]="delivery_rate ==1 ? 'delivery_btn hydrated' : 'rate_meal hydrated button-outline'" (click)="delivery_rate =1;item_review=0"> {{"order_detail_page.rate_delivery_boy" | translate}}</ion-button>
+        </div>
+        <div class="rate_meal_div rate_delivery_div" *ngIf="item_review ">
+            <p class="text_p">{{"order_detail_page.restaurant_review" | translate}}</p>
+            <div class="first_div ion-margin-horizontal">
+                <div class="img_div">
+                    <img [src]="data?.shop?.imagePath + data?.shop?.image" />
+                </div>
+                <div class="text_div">
+                    <h3 class="name">{{data?.shop?.name}}</h3>
+                    <div class="rate_star">
+                        <ion-icon [name]="shopReview.rate >=1 ? 'star':'star-outline'" (click)="shopReview.rate=1"></ion-icon>
+                        <ion-icon [name]="shopReview.rate >=2 ? 'star':'star-outline'" (click)="shopReview.rate=2"></ion-icon>
+                        <ion-icon [name]="shopReview.rate >=3 ? 'star':'star-outline'" (click)="shopReview.rate=3"></ion-icon>
+                        <ion-icon [name]="shopReview.rate >=4 ? 'star':'star-outline'" (click)="shopReview.rate=4"></ion-icon>
+                        <ion-icon [name]="shopReview.rate >=5 ? 'star':'star-outline'" (click)="shopReview.rate=5"></ion-icon>
+                    </div>
+                    <ion-textarea placeholder="Type your review" rows="2" [(ngModel)]="shopReview.message"></ion-textarea>
+                </div>
+            </div>
+            <div class="submit_div">
+                <ion-button class="submit_btn" (click)="shopReiviewData(shopReview)" [disabled]="data?.shopReview_status == 1 ? 'true' :'false' ">{{"order_detail_page.submit" | translate}} </ion-button>
+            </div>
+            <ng-container>
+
+
+                <p class="text_p">{{"order_detail_page.restaurant_review" | translate}}</p>
+
+                <div class="first_div ion-margin-horizontal" *ngFor="let item of data?.orderItems">
+                    <div class="img_div">
+                        <img [src]="data?.shop?.imagePath + data?.shop?.image" />
+                    </div>
+                    <div class="text_div">
+                        <h3 class="name">{{item?.itemName}} {{item?.packageName}}</h3>
+                        <div class="rate_star">
+                            <ion-icon [name]="item.rate >= 1 ? 'star':'star-outline'" (click)="item.rate=1"></ion-icon>
+                            <ion-icon [name]="item.rate >= 2 ? 'star':'star-outline'" (click)="item.rate=2"></ion-icon>
+                            <ion-icon [name]="item.rate >= 3 ? 'star':'star-outline'" (click)="item.rate=3"></ion-icon>
+                            <ion-icon [name]="item.rate >= 4 ? 'star':'star-outline'" (click)="item.rate=4"></ion-icon>
+                            <ion-icon [name]="item.rate >= 5 ? 'star':'star-outline'" (click)="item.rate=5"></ion-icon>
+                        </div>
+                        <ion-textarea placeholder="Type your review" rows="2" [(ngModel)]="item.message"></ion-textarea>
+                    </div>
+                </div>
+                <div class="submit_div">
+                    <ion-button (click)="onSubmit(data.orderItems)" class="submit_btn" [disabled]="data?.review_status == 1 ? 'true' :'false' ">{{"order_detail_page.submit" | translate}}
+                    </ion-button>
+                </div>
+            </ng-container>
+        </div>
+        <div class="rate_delivery_div " *ngIf="delivery_rate">
+            <div class="first_div ion-margin-horizontal">
+                <div class="img_div">
+                    <img [src]="data?.driver?.imagePath + data?.driver?.image" />
+                </div>
+                <div class="text_div">
+                    <h3 class="name">{{data?.driver?.name}}</h3>
+                    <div class="rate_star">
+                        <ion-icon [name]="driverReview.rate >=1 ? 'star':'star-outline'" (click)="driverReview.rate=1"></ion-icon>
+                        <ion-icon [name]="driverReview.rate >=2 ? 'star':'star-outline'" (click)="driverReview.rate=2"></ion-icon>
+                        <ion-icon [name]="driverReview.rate >=3 ? 'star':'star-outline'" (click)="driverReview.rate=3"></ion-icon>
+                        <ion-icon [name]="driverReview.rate >=4 ? 'star':'star-outline'" (click)="driverReview.rate=4"></ion-icon>
+                        <ion-icon [name]="driverReview.rate >=5 ? 'star':'star-outline'" (click)="driverReview.rate=5"></ion-icon>
+                    </div>
+                    <p class="err" *ngIf="err?.rate">{{err?.rate}}</p>
+                </div>
+            </div>
+
+            <div class="ion-margin-horizontal">
+                <ion-textarea placeholder="Type your review" rows="2" [(ngModel)]="driverReview.message"></ion-textarea>
+                <p class="err" *ngIf="err?.message">{{err?.message}}</p>
+            </div>
+            <div class="submit_div">
+                <ion-button class="submit_btn" (click)="driverReviewData(driverReview)" [disabled]="data?.driverReview_status == 1 ? 'true' :'false' ">{{"order_detail_page.submit" | translate}} </ion-button>
+            </div>
+        </div>
+    </div>
+</ion-content>

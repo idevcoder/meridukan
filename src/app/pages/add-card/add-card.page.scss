@@ -1,0 +1,49 @@
+ion-content {
+    .visa_div {
+        background-color: var(--ion-color-sky);
+        height: 90px;
+        text-align: center;
+        ion-row {
+            padding: 12px;
+            ion-col {
+                align-self: center;
+                .check_div {
+                    color: var(--ion-color-solid-green);
+                    height: 13px;
+                    width: 13px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 2px;
+                    right: 12px;
+                }
+            }
+        }
+    }
+    .col_div {
+        margin: 16px 16px 60px 16px;
+        .card_label {
+            font-family: 'Helvetica-Neue';
+            font-size: 11px;
+            color: var(--ion-color-order-gray);
+        }
+        ion-input {
+            border: solid 1px;
+            font-size: 14px;
+            font-family: 'Helvetica-Neue';
+            border-color: #D4D4D4;
+            --color: var(--ion-color-order-gray);
+            margin-top: 5px;
+            margin-bottom: 15px;
+            height: 50px;
+            --padding-start: 15px;
+        }
+        .check_div {
+            color: var(--ion-color-solid-green);
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            position: absolute;
+            right: -7px;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" mode="md"></ion-back-button>
+        </ion-buttons>
+        <ion-title> {{'select_address_page.title' | translate}} </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="addAddress()">
+                <ion-icon name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div no-data *ngIf="addressList?.length == 0">
+        <img src="../../../assets/image/no-data-icon-10.jpg" alt="no data">
+    </div>
+    <ng-container *ngIf="addressList && addressList.length > 0">
+
+        <ion-item-sliding *ngFor="let address of addressList">
+            <ion-item-options side="end">
+                <ion-item-option (click)="editAddress(address)" class="editBtn">{{'select_address_page.edit' | translate}}</ion-item-option>
+                <ion-item-option color="danger" (click)="deleteAddress(address)">{{'select_address_page.delete' | translate}}</ion-item-option>
+            </ion-item-options>
+
+            <ion-item (click)="setAddress(address)">
+                <ion-label>
+                    <h2 class="title">{{ address.address_type }}</h2>
+                    <p class="address-text">
+                        {{ address.soc_name }}, {{address.street}}, {{address.city}}, {{address.zipcode}}
+                    </p>
+                </ion-label>
+                <ion-checkbox custom-chckbox slot="end" mode="ios" [checked]="address.checked">
+                </ion-checkbox>
+            </ion-item>
+        </ion-item-sliding>
+
+        <ion-button class=" otp_btn setaddress_btn" mode="md" expand="block" fill="solid" (click)="setDefaultAddress()">
+            {{'select_address_page.set_address' | translate}}
+        </ion-button>
+    </ng-container>
+</ion-content>

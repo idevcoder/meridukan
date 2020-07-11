@@ -1,0 +1,38 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-title class="ion-text-center">
+            {{"item_review_page.title" | translate}}
+        </ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" mode="md"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div no-data *ngIf="data?.length == 0">
+        <img src="../../../assets/image/no-data-icon-10.jpg" alt="no data">
+    </div>
+    <div class="list" *ngFor="let i of data">
+        <img src="{{i?.customer?.imagePath + i?.customer?.image}}">
+        <div style="flex: 1; margin-left: 16px;">
+            <div class="flexBox">
+                <h2 class="username">
+                    {{i?.customer?.name}}
+                </h2>
+                <p class="date">
+                    {{i?.created_at| date:' yy/MM/dd'}}
+                </p>
+            </div>
+            <h2 class="stars">
+                <ion-icon [name]="i?.rate >= 1 ? 'md-star' : 'ios-star-outline'"></ion-icon>
+                <ion-icon [name]="i?.rate >= 2 ? 'md-star' : 'ios-star-outline'"></ion-icon>
+                <ion-icon [name]="i?.rate >= 3 ? 'md-star' : 'ios-star-outline'"></ion-icon>
+                <ion-icon [name]="i?.rate >= 4 ? 'md-star' : 'ios-star-outline'"></ion-icon>
+                <ion-icon [name]="i?.rate >= 5 ? 'md-star' : 'ios-star-outline'"></ion-icon>
+            </h2>
+            <h2 class="desc"> {{i?.message}}</h2>
+        </div>
+    </div>
+
+</ion-content>

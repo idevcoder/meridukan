@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="main_div ion-margin-horizontal">
+        <h3 class="name ion-text-center">{{"filter_page.title" | translate}}</h3>
+
+        <ion-row>
+            <ion-col *ngFor="let item of filter" size="6" (click)="setAddressType(item)">
+                <label class="checkbox-button">
+          <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="item?.name"
+            [disabled]="item.checked" [checked]="item.checked">
+          <span class="checkbox-button__control"></span>
+          <span class="checkbox-button__label">{{"filter_page."+item?.name | translate}}</span>
+        </label>
+            </ion-col>
+
+        </ion-row>
+
+        <ion-button class="otp_btn" (click)="goHome()">
+            {{"filter_page.apply_btn" | translate}}
+        </ion-button>
+    </div>
+
+</ion-content>

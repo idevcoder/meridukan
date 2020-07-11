@@ -1,0 +1,80 @@
+<ion-header no-border>
+    <ion-toolbar mode="md">
+        <ion-buttons>
+            <ion-back-button defaultHref="home" icon="ios-arrow-back" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-uppercase">Payment</ion-title>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="card_div">
+        <ion-label class="save_label">Your save card</ion-label>
+        <ion-button class="add_btn trans-btn ion-float-right ion-text-capitalize" (click)="addCard()">
+            Add new card</ion-button>
+    </div>
+    <ion-slides pager="true">
+        <ion-slide>
+            <div class="credit_card">
+                <div class="top-img">
+                    <img src="https://tutorez.com/assets/img/visa.png">
+                </div>
+                <h2 class="number">
+                    1234 4567 7896 1545
+                </h2>
+                <div class="personal-detail">
+                    <div class="card-holder">
+                        <p>CARD HOLDER</p>
+                        <h2>RANDY ORTON</h2>
+                    </div>
+                    <div class="cvv">
+                        <p>EXPIRES HOLDER</p>
+                        <h2>09 / 15</h2>
+                    </div>
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="credit_card">
+                <div class="top-img">
+                    <img src="https://tutorez.com/assets/img/visa.png">
+                </div>
+                <h2 class="number">
+                    1234 4567 7896 1545
+                </h2>
+                <div class="personal-detail">
+                    <div class="card-holder">
+                        <p>CARD HOLDER</p>
+                        <h2>RANDY ORTON</h2>
+                    </div>
+                    <div class="cvv">
+                        <p>EXPIRES HOLDER</p>
+                        <h2>09 / 15</h2>
+                    </div>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+    <div class="bill_detail ion-margin-horizontal">
+        <h3 class="combo">
+            Bill Details
+        </h3>
+        <p class="bill_item">Item Total <span class="ion-float-right">$99.00</span></p>
+        <p class="bill_item">Restaurant Charges<span class="ion-float-right">$01.00</span></p>
+        <p class="total">Total Discount<span class="ion-float-right">-$10.00</span></p>
+        <p class="bill_item">Delivery Fee<span class="ion-float-right">$02.00</span></p>
+        <p class="bill_item cancel_fee">Cancellation Fee<span class="ion-float-right">$05.00</span></p>
+        <p class="bill_item">To Pay<span class="ion-float-right">$92.00</span></p>
+        <div class="saved">
+            <span>You have saved $8 on the bill</span>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-button class="otp_btn" (click)="presentModal()">
+        Pay $92
+    </ion-button>
+</ion-footer>

@@ -1,0 +1,134 @@
+
+ion-content{
+    .card_div {
+        margin-top: 14px;
+        margin-bottom: 14px;
+        padding-left: 16px;
+        padding-right: 16px;
+        .save_label {
+            font-size: 16px;
+            font-family: 'Poppins-Medium';
+            color: var(--ion-color-darkBlue);
+        }
+        .add_btn {
+            font-size: 16px;
+            font-family: 'Poppins-Medium';
+            color: var(--ion-color-red);
+            --ripple-color: transparent;
+            height: 19px;
+            --background:transparent;
+            box-shadow: none;
+            margin: 0px;
+        }
+    }
+    ion-slide {
+        text-align: initial;
+        .credit_card {
+            width: 100%;
+            box-shadow: 0px 0px 5px 5px #00000026;
+            margin: 18px 20px;
+            padding: 12px;
+            border-radius: 19px;
+            background: var(--ion-color-darkBlue);
+            .top-img {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                img {
+                    height: 66px;
+                }
+            }
+            .number {
+                margin: 0;
+                font-size: 16px;
+                font-family: Poppins-SemiBold;
+                color: #fff;
+                text-align: center;
+                margin-top: 8px;
+                letter-spacing: 2.5px;
+            }
+            .personal-detail {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                div {
+                    width: 100%;
+                    &.cvv {
+                        text-align: end;
+                    }
+                }
+                p {
+                    margin: 0;
+                    font-size: 11px;
+                    letter-spacing: 1.5px;
+                    font-family: Poppins-SemiBold;
+                    margin-top: 23px;
+                    color: var(--ion-color-placeholder)
+                }
+                h2 {
+                    margin: 0;
+                    font-size: 15px;
+                    font-family: Poppins-SemiBold;
+                    color: #fff;
+                    letter-spacing: 1.5px;
+                }
+            }
+        }
+    }
+
+    .bill_detail{
+        .bill_item{
+            font-size: 10px;
+            font-family: 'Poppins-Medium';
+            color: var(--ion-color-darkBlue);
+        }
+        .total{
+            color: var( --ion-color-green);
+            font-size: 10px;
+            font-family: 'Poppins-Medium';
+            border-bottom: dashed 1px var(--ion-border-color);
+            margin-bottom: 0px;
+            padding-bottom: 10px;
+        }
+        .cancel_fee{
+            margin-bottom: 0px;
+            padding-bottom: 10px;
+            border-bottom: dashed 1px var(--ion-border-color);
+        }
+        .saved{
+            background-color: var(--ion-color-light-green);
+            border: dashed 1px var( --ion-color-green);
+            height: 26px;
+            color: var(--ion-color-green);
+            font-size: 10px;
+            font-family: 'Poppins-Medium';
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+        .combo{
+            font-family: 'Poppins-Medium';
+            font-size: 16px;
+            color: var(--ion-color-darkBlue);
+        }
+    }
+    .tittle{
+        font-size: 14px;
+        font-family: 'Poppins-Medium';
+        color: var(--ion-color-darkBlue);
+        padding-left: 16px;
+        padding-right: 16px;
+        span{
+            color: var(--ion-color-red);
+        }
+    }
+}
+
+.slides-md {
+    --bullet-background: var(--ion-color-green)!important;
+    --bullet-background-active: var(--ion-color-green)!important;
+}
+
+.slides-ios {
+    --bullet-background: var(--ion-color-green)!important;
+    --bullet-background-active: var(--ion-color-green)!important;
+}

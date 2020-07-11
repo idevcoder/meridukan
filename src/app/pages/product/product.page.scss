@@ -1,0 +1,90 @@
+ion-header {
+    ion-toolbar {
+        ion-title {
+            font-family: "fivo-regular";
+            text-transform: uppercase;
+        }
+        ion-back-button {
+            color: var(--ion-color-green);
+        }
+    }
+}
+
+ion-content {
+    .store_div {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px 16px 10px 16px;
+        flex: 1 1;
+        justify-content: space-between;
+        .product_div {
+            width: 48%;
+            border-radius: 5px;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+            padding: 10px 7px;
+            margin-bottom: 20px;
+            position: relative;
+            .img_div {
+                display: flex;
+                justify-content: center;
+                padding: 5px 0px 10px 0px;
+                img {
+                    height: 100px;
+                    width: 80px;
+                }
+            }
+            .name {
+                font-size: 15px;
+                font-family: "fivo-regular";
+                color: var(--ion-color-darkBlue);
+                margin: 0;
+            }
+            .qunty {
+                font-size: 12px;
+                color: var(--border-color);
+                font-family: "fivo-regular";
+                margin: 4px 0px;
+            }
+            .price {
+                font-size: 14px;
+                color: var(--green-color);
+                font-family: "fivo-regular";
+                margin: 0;
+            }
+            .btn_div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .add_btn {
+                    height: 15px;
+                    width: 15px;
+                    --background: var(--ion-color-darkBlue);
+                    --background-activated: var(--ion-color-darkBlue);
+                    // --border-radius: 2px;
+                    ion-icon {
+                        height: 9px;
+                        width: 9px;
+                    }
+                }
+                .qty_p {
+                    font-size: 14px;
+                    color: var(--border-color);
+                    font-family: "fivo-regular";
+                    margin: 0 5px;
+                    padding-top: 2px;
+                    span {
+                        margin-left: 5px;
+                    }
+                    ion-icon {
+                        color: var(--ion-color-yellow);
+                        margin-right: 3px;
+                    }
+                }
+                .qty_div {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

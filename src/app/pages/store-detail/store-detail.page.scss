@@ -1,0 +1,235 @@
+ion-header {
+    ion-toolbar {
+        --background: transparent;
+        position: fixed;
+        top: 0;
+        .pro_btn {
+            height: 33px;
+            ion-icon {
+                height: 33px;
+                width: 33px;
+            }
+        }
+        ion-back-button {
+            color: var(--ion-color-white);
+        }
+        ion-title {
+            color: var(--ion-color-white);
+            font-family: "fivo-regular";
+        }
+    }
+}
+
+ion-content {
+    .star {
+        position: relative;
+        right: 15px;
+        top: 23px;
+    }
+    .vote {
+        font-size: 10.5px;
+        font-family: "Poppins-Regular";
+        color: var(--ion-color-darkgray);
+        margin: 0px;
+        span {
+            margin-left: 5px;
+        }
+        ion-icon {
+            color: var(--ion-color-yellow);
+            margin-right: 3px;
+        }
+    }
+    .heade_div {
+        // background-image: url("../../../assets/image/back_img.png");
+        height: 130px;
+        border-radius: 0px 0px 25px 25px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .back_layer {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 0px 0px 20px 20px;
+            padding-top: 70px;
+        }
+        .profile_div {
+            text-align: center;
+            .since_lbl {
+                font-size: 14px;
+                font-family: "fivo-regular";
+                margin-top: 0;
+                margin-bottom: 10px;
+                color: var(--ion-color-white);
+            }
+            img {
+                height: 90px;
+                width: 90px;
+            }
+            .time {
+                font-size: 14px;
+                font-family: "fivo-regular";
+                margin-top: 10px;
+                margin-bottom: 3px;
+                color: var(--ion-color-white);
+            }
+            .policy_lbl {
+                font-size: 12px;
+                font-family: "fivo-regular";
+                margin-top: 5px;
+                margin-bottom: 20px;
+                color: var(--ion-color-white);
+            }
+        }
+    }
+    .main_lbl {
+        margin-top: 10px;
+        font-size: 18px;
+        color: var(--light-black-color);
+        font-family: "fivo-regular";
+        padding: 0px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .more_btn {
+            font-size: 14px;
+            text-transform: capitalize;
+            --color: var(--green-color);
+            height: 20px;
+        }
+    }
+    .coupon_div {
+        margin: 20px 16px 0px 16px;
+        height: 103px;
+        background-color: var(--light-green-color);
+        border-radius: 5px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .sticker_div {
+            height: 62px;
+            width: 62px;
+            min-width: 62px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--ion-color-white);
+            img {
+                height: 34px;
+                width: 34px;
+            }
+        }
+        .info_div {
+            padding-left: 25px;
+            width: 73%;
+            .info_lbl {
+                font-size: 18px;
+                font-family: "fivo-medium";
+                color: var(--light-black-color);
+                margin: 0;
+            }
+            .discount {
+                font-size: 14px;
+                font-family: "fivo-regular";
+                color: var(--light-black-color);
+                margin: 5px 0px;
+            }
+        }
+    }
+    .trending_div {
+        display: -webkit-box;
+        overflow-x: auto;
+        padding: 10px 0px 10px 16px;
+        .product_div {
+            width: 145px;
+            border-radius: 5px;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+            padding: 10px 7px;
+            margin-right: 16px;
+            .img_div {
+                display: flex;
+                justify-content: center;
+                padding: 5px 0px 10px 0px;
+                img {
+                    height: 100px;
+                    width: 80px;
+                }
+            }
+            .name {
+                font-size: 15px;
+                font-family: "fivo-regular";
+                color: var(--ion-color-darkBlue);
+                margin: 0;
+            }
+            .qunty {
+                font-size: 12px;
+                color: var(--border-color);
+                font-family: "fivo-regular";
+                margin: 4px 0px;
+            }
+            .price {
+                font-size: 14px;
+                color: var(--green-color);
+                font-family: "fivo-regular";
+                margin: 0;
+            }
+        }
+        .btn_div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .add_btn {
+                height: 15px;
+                width: 15px;
+                --background: var(--ion-color-darkBlue);
+                --background-activated: var(--ion-color-darkBlue);
+                // --border-radius: 2px;
+                ion-icon {
+                    height: 9px;
+                    width: 9px;
+                }
+            }
+            .qty_p {
+                font-size: 14px;
+                color: var(--border-color);
+                font-family: "fivo-regular";
+                margin: 0 5px;
+                padding-top: 2px;
+            }
+            .qty_div {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .trending_div::-webkit-scrollbar,
+    .categories_div::-webkit-scrollbar {
+        display: none;
+    }
+    .categories_div {
+        display: -webkit-box;
+        overflow-x: auto;
+        padding: 10px 0px 10px 16px;
+        .product_div {
+            width: 145px;
+            border-radius: 5px;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+            padding: 0px 0px 10px 0px;
+            text-align: center;
+            margin-right: 16px;
+            .name {
+                margin-top: 5px;
+                font-size: 18px;
+                color: var(--light-black-color);
+                font-family: "fivo-regular";
+                margin-bottom: 2px;
+            }
+            img {
+                height: 123px;
+                width: 100%;
+                object-fit: scale-down;
+            }
+        }
+    }
+}
