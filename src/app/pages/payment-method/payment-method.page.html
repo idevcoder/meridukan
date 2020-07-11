@@ -34,12 +34,6 @@
                 <h3 [ngClass]="razorPayment==1 ? 'tittle' : 'cash_heading' ">{{"pay_method_page.razor_pay" | translate}}</h3>
             </div>
         </div>
-        <div class="cash" (click)="razorPayment=0; paypalPayment=1" [ngStyle]="{'background-color':paypalPayment===1? 'var(--ion-color-green)': 'var(--ion-color-white)' }">
-            <div class="img_div">
-                <img src="../../../assets/image/paypal_image.png" class="pay_img paypal_img" />
-                <h3 [ngClass]="paypalPayment==1 ? 'tittle' : 'cash_heading' ">{{"pay_method_page.pay_pal" | translate}}</h3>
-            </div>
-        </div>
     </div>
     <div>
 

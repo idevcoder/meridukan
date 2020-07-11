@@ -21,11 +21,11 @@
     <div [ngSwitch]="event" class="ion-margin-horizontal main_div">
         <div *ngSwitchCase="'delivery'">
             <div class="card_item" *ngFor="let item of data">
-                <div class="img_div">
+                <div class="img_div" (click)="storeDetail(item?.id)">
                     <img [src]="item?.imagePath + item?.image">
                 </div>
                 <div class="info_div">
-                    <h3 class="name">{{item?.name}}</h3>
+                    <h3 class="name" (click)="storeDetail(item?.id)">{{item?.name}}</h3>
                     <p class="type">{{item?.brand}}</p>
                     <div class="price_div">
                         <p class="type qty">{{item?.weight}}</p>

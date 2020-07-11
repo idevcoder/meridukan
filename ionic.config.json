@@ -1,7 +1,8 @@
 {
-    "name": "meridukan",
-    "integrations": {
-        "cordova": {}
-    },
-    "type": "angular"
+  "name": "meridukan",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "9b9f0b11"
 }

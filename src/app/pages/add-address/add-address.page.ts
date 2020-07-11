@@ -31,6 +31,7 @@ export class AddAddressPage implements OnInit {
   Centerlat = 22.308155;
   Centerlng = 70.800705;
   public agmMap:any = {
+    zoom: 15,
     lat: '',
     lng: ''
   }

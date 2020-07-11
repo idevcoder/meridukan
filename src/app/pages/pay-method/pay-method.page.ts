@@ -19,6 +19,7 @@ declare var RazorpayCheckout: any;
 export class PayMethodPage implements OnInit {
   currencyType: any;
   data: any = {};
+  isOnlinePayment = false;
   online = 1;
   cash = 0;
   err: any;
@@ -39,6 +40,12 @@ export class PayMethodPage implements OnInit {
     this.api.getDataWithToken("keySetting").subscribe((res: any) => {
       if (res.success) {
         this.data = res.data;
+        if(this.data.razor){
+          this.isOnlinePayment = true;
+        }
+        else{
+          this.online = 0;
+        }
         this.util.dismissLoader();
       }
     });

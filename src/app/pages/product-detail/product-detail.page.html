@@ -37,30 +37,6 @@
 
         </ion-col>
     </ion-row>
-    <div class="review_divison">
-        <h3 class="h3">{{"store_detail.review" | translate }}</h3>
-        <ion-item class="review_item" *ngFor="let item of review" lines="none">
-            <ion-avatar slot="start">
-                <img [src]="item?.customer?.imagePath + item?.customer?.image" />
-            </ion-avatar>
-            <ion-label>
-                <ion-icon [class]="item.rate >= 5 ? 'first_icon hydrated ion-float-right' :
-                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
-                <ion-icon [class]="item.rate >= 4 ? 'first_icon hydrated ion-float-right' :
-                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
-                <ion-icon [class]="item.rate >= 3 ? 'first_icon hydrated ion-float-right' :
-                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
-                <ion-icon [class]="item.rate >= 2 ? 'first_icon hydrated ion-float-right' :
-                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
-                <ion-icon [class]="item.rate >= 1 ? 'first_icon hydrated ion-float-right' :
-                                                 'last_icon hydrated ion-float-right'" name="star"></ion-icon>
-                <h3 class="name">{{data?.shopName}}</h3>
-
-                <h3 class="ago">{{item?.created_at}}</h3>
-                <p class="detail">{{item?.message}}</p>
-            </ion-label>
-        </ion-item>
-    </div>
 </ion-content>
 <ion-footer>
     <div class="cart_div ion-margin">

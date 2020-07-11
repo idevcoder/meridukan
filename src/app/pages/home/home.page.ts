@@ -17,40 +17,19 @@ import { Geolocation } from "@ionic-native/geolocation/ngx";
   styleUrls: ["home.page.scss"],
 })
 export class HomePage {
-  term: string;
+  cartData: any = [];
+  data: any = { product: [] };
+  term = "";
+  dataa: any = [];
+  Store: any = [];
+  id: any;
+
   userAddress: any = {};
   err: any = {};
   currentTime: any;
-  isfood = true;
-  sellProduct = 0;
-  public staticData: any = {
-    feature: [
-      {
-        image: "assets/image/diamond.svg",
-        text: "Most Popular",
-        type: "popular",
-      },
-      {
-        image: "assets/image/near.svg",
-        text: "Great Offers",
-      },
-      {
-        image: "assets/image/express.svg",
-        text: "Pure Veg Places",
-        type: "pureveg",
-      },
-      {
-        image: "assets/image/pocket.svg",
-        text: "Pocket Friendly",
-        type: "lowcost",
-      },
-      {
-        image: "assets/image/shop.svg",
-        text: "Nearest Me",
-        type: "nearest",
-      },
-    ],
-  };
+  isfood = false;
+  sellProduct = 2;
+
   public slideOpts: any = {
     slidesPerView: "auto",
     centeredSlides: true,
@@ -68,32 +47,10 @@ export class HomePage {
       clickable: true,
     },
   };
-  data: any = {};
   grocery: any = {};
   btnType = "Exclusive";
   currency: any;
   Address: any;
-
-  trending = [
-    {
-      name: "Real Fruit Juice ,Litchi, (Pack of 2)",
-      img: "../../../assets/image/real_juice.png",
-      qty: "1Ltr",
-      price: "$15.50",
-    },
-    {
-      name: "Real Fruit Juice ,Litchi, (Pack of 2)",
-      img: "../../../assets/image/real_juice.png",
-      qty: "1Ltr",
-      price: "$15.50",
-    },
-    {
-      name: "Real Fruit Juice ,Litchi, (Pack of 2)",
-      img: "../../../assets/image/real_juice.png",
-      qty: "1Ltr",
-      price: "$15.50",
-    },
-  ];
 
   public innerWidth: any = window.innerWidth;
   public banners: any = Array();
@@ -108,39 +65,76 @@ export class HomePage {
     private geolocation: Geolocation
   ) {
     this.menu.enable(true);
+    this.initData();
+    this.dataa = JSON.parse(localStorage.getItem("store-detail"));
 
-    this.api.getData("keySetting").subscribe(
-      (res: any) => {
-        this.sellProduct = res.data.sell_product;
-        if (this.sellProduct == 2) {
-          this.isfood = false;
-        }
-        this.initData();
-      },
-      (err) => {
-        console.log("err", err);
-      }
-    );
   }
 
   private initData() {
     this.getAdvertisingBanner();
-
     this.util.startLoad();
-    this.api.getDataWithToken("home").subscribe(
+    this.api.getDataWithToken("groceryShop").subscribe(
       (res: any) => {
         if (res.success) {
-          this.data = res.data;
-          this.currency = this.api.currency;
+          this.gpi.storeID = res.data.shop[0].id;
+          this.api
+            .getDataWithToken("groceryShopDetail/" + this.gpi.storeID)
+            .subscribe(
+              (res: any) => {
+                if (res.success) {
+                  this.data = res.data;
 
-          this.getGrocery();
+                  this.currency = this.api.currency;
+                  this.api
+                    .getDataWithToken("groceryShopCategory/" + this.gpi.storeID)
+                    .subscribe(
+                      (res: any) => {
+                        if (res.success) {
+                          this.data.category = res.data;
+                          this.api
+                            .getDataWithToken("groceryItem/" + this.gpi.storeID)
+                            .subscribe(
+                              (res: any) => {
+                                if (res.success) {
+                                  this.util.dismissLoader();
+                                  this.data.product = res.data;
+                                  this.id = res.data.id;
+                                  this.data.product.forEach((element) => {
+                                    element.qty = 0;
+                                    if (this.cartData.length > 0) {
+                                      const fCart = this.cartData.find(
+                                        (x) => x.id == element.id
+                                      );
+                                      if (fCart) {
+                                        element.qty = fCart.qty;
+                                      }
+                                    }
+                                  });
+                                }
+                              },
+                              (err) => {
+                                this.util.dismissLoader();
+                              }
+                            );
+                        }
+                      },
+                      (err) => {
+                        this.util.dismissLoader();
+                      }
+                    );
+                }
+              },
+              (err) => {
+                this.util.dismissLoader();
+              }
+            );
+          }
+        },
+        (err) => {
+          this.util.dismissLoader();
+          this.err = err;
         }
-      },
-      (err) => {
-        this.util.dismissLoader();
-        this.err = err;
-      }
-    );
+      );
   }
 
   getAdvertisingBanner(): void {
@@ -152,6 +146,25 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
+    this.cartData = JSON.parse(localStorage.getItem("store-detail")) || [];
+
+    if (this.cartData.length > 0) {
+      if (this.data.product && this.data.product.length > 0) {
+        this.data.product.forEach((el1) => {
+          const fCart = this.cartData.find((x) => x.id == el1.id);
+          if (fCart) {
+            el1.qty = fCart.qty;
+          } else {
+            el1.qty = 0;
+          }
+        });
+      }
+    } else {
+      this.data.product.forEach((el1) => {
+        el1.qty = 0;
+      });
+    }
+
     if (localStorage.getItem("isaddress") != "false") {
       this.util.startLoad();
       this.api
@@ -204,244 +217,66 @@ export class HomePage {
     }
   }
 
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: FilterPage,
-      cssClass: "filterModal",
-      backdropDismiss: true,
-    });
-    modal.onDidDismiss().then((res) => {
-      if (res["data"] != undefined) {
-        let filetype;
-        res.data.forEach((element) => {
-          if (element.checked == true) {
-            filetype = element.name;
-          }
-        });
-        if (filetype == "Cost High to Low") {
-          this.data.shop.sort((a, b) => {
-            if (a.avarage_plate_price > b.avarage_plate_price) {
-              return -1;
-            }
-            if (a.avarage_plate_price < b.avarage_plate_price) {
-              return 1;
-            }
-            return 0;
-          });
-        } else if (filetype == "Top Rated" || filetype == "Most Popular") {
-          this.data.shop.sort((a, b) => {
-            if (a.rate > b.rate) {
-              return -1;
-            }
-            if (a.rate < b.rate) {
-              return 1;
-            }
-            return 0;
-          });
-        } else if (filetype == "Cost Low to High") {
-          this.data.shop.sort((a, b) => {
-            if (a.avarage_plate_price < b.avarage_plate_price) {
-              return -1;
-            }
-            if (a.avarage_plate_price > b.avarage_plate_price) {
-              return 1;
-            }
-            return 0;
-          });
-        } else if (filetype == "Open Now") {
-          this.currentTime = moment().format("HH:mm");
-          this.data.shop = this.data.shop.filter((a) => {
-            a.open_time = moment("2019-07-19 " + a.open_time).format("HH:mm");
-            a.close_time = moment("2019-07-19 " + a.close_time).format("HH:mm");
-            if (
-              this.currentTime >= a.open_time &&
-              this.currentTime <= a.close_time
-            ) {
-              return a;
-            }
-          });
-        } else {
-          if (localStorage.getItem("isaddress") != "false") {
-            this.api
-              .getDataWithToken(
-                "getAddress/" + localStorage.getItem("isaddress")
-              )
-              .subscribe((res: any) => {
-                if (res.success) {
-                  this.Address =
-                    res.data.soc_name +
-                    " " +
-                    res.data.street +
-                    " " +
-                    res.data.city +
-                    " " +
-                    res.data.zipcode;
+  AddCart(item) {
+    item.qty = item.qty + 1;
+    item.total = item.qty * item.sell_price;
+    this.cartData = JSON.parse(localStorage.getItem("store-detail")) || [];
 
-                  const options: NativeGeocoderOptions = {
-                    useLocale: true,
-                    maxResults: 5,
-                  };
+    const fCart = this.cartData.find((x) => x.id == item.id);
 
-                  this.nativeGeocoder
-                    .forwardGeocode(this.Address, options)
-                    .then((result: NativeGeocoderResult[]) => {
-                      this.data.shop.forEach((element) => {
-                        element.distance = this.distance(
-                          result[0].latitude,
-                          result[0].longitude,
-                          element.latitude,
-                          element.longitude,
-                          "K"
-                        );
-                      });
-
-                      this.data.shop.sort((a, b) => {
-                        if (a.distance < b.distance) {
-                          return -1;
-                        }
-                        if (a.distance > b.distance) {
-                          return 1;
-                        }
-                      });
-                    })
-                    .catch((error: any) => console.log(error));
-                }
-              });
-          } else {
-            const options: NativeGeocoderOptions = {
-              useLocale: true,
-              maxResults: 5,
-            };
-
-            this.nativeGeocoder
-              .forwardGeocode(this.userAddress, options)
-              .then((result: NativeGeocoderResult[]) => {
-                this.data.shop.forEach((element) => {
-                  element.distance = this.distance(
-                    result[0].latitude,
-                    result[0].longitude,
-                    element.latitude,
-                    element.longitude,
-                    "K"
-                  );
-                });
-
-                this.data.shop.sort((a, b) => {
-                  if (a.distance < b.distance) {
-                    return -1;
-                  }
-                  if (a.distance > b.distance) {
-                    return 1;
-                  }
-                });
-              })
-              .catch((error: any) => console.log(error));
-          }
-        }
-      }
-    });
-    return await modal.present();
-  }
-
-  detail() {
-    this.navCtrl.navigateForward(["restaurant-detail"]);
-  }
-
-  resturantDetail(id) {
-    this.api.detailId = id;
-    this.navCtrl.navigateForward(["restaurant-detail"]);
-  }
-
-  distance(lat1, lon1, lat2, lon2, unit) {
-    if (lat1 == lat2 && lon1 == lon2) {
-      return 0;
+    if (fCart) {
+      fCart.qty = item.qty;
     } else {
-      const radlat1 = (Math.PI * lat1) / 180;
-      const radlat2 = (Math.PI * lat2) / 180;
-      const theta = lon1 - lon2;
-      const radtheta = (Math.PI * theta) / 180;
-      let dist =
-        Math.sin(radlat1) * Math.sin(radlat2) +
-        Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-      if (dist > 1) {
-        dist = 1;
-      }
-      dist = Math.acos(dist);
-      dist = (dist * 180) / Math.PI;
-      dist = dist * 60 * 1.1515;
-      if (unit == "K") {
-        dist = dist * 1.609344;
-      }
-      if (unit == "N") {
-        dist = dist * 0.8684;
-      }
-      return dist;
+      this.cartData.push(item);
     }
+    localStorage.setItem("store-detail", JSON.stringify(this.cartData));
   }
+  remove(item) {
+    let equalIndex;
+    if (item.qty == 0) return;
+    item.qty = item.qty - 1;
 
-  feature(type) {
-    if (type) {
-      this.api.filterType = type;
-      this.navCtrl.navigateForward("/category");
+    if (item.qty == 0) {
+      const i = this.cartData.findIndex((x) => x.id == item.id);
+
+      this.cartData.splice(i, 1);
     } else {
-      this.navCtrl.navigateForward("/promocode/menu");
-    }
-  }
-
-  categoryData(id) {
-    this.navCtrl.navigateForward("/category/" + id);
-  }
-  getGrocery() {
-    this.api.getDataWithToken("groceryShop").subscribe(
-      (res: any) => {
-        if (res.success) {
-          this.grocery.Store = res.data.shop;
-          this.grocery.coupon = res.data.coupon;
-          this.api.getDataWithToken("groceryCategory").subscribe(
-            (res: any) => {
-              if (res.success) {
-                this.util.dismissLoader();
-                this.grocery.category = res.data;
-
-                this.grocery.Store.forEach((element) => {
-                  element.away = Number(
-                    this.distance(
-                      this.userAddress.lat,
-                      this.userAddress.lang,
-                      element.latitude,
-                      element.longitude,
-                      "K"
-                    ).toFixed(2)
-                  );
-                });
-              }
-            },
-            (err) => {
-              this.util.dismissLoader();
-              this.err = err;
-            }
-          );
-          this.util.dismissLoader();
-        }
-      },
-      (err) => {
-        this.util.dismissLoader();
-        this.err = err;
+      item.total = item.qty * item.sell_price;
+      this.cartData = JSON.parse(localStorage.getItem("store-detail")) || [];
+      const fCart = this.cartData.find((x) => x.id == item.id);
+      if (fCart) {
+        fCart.qty = item.qty;
       }
-    );
+    }
+
+    localStorage.setItem("store-detail", JSON.stringify(this.cartData));
   }
-  storeList() {
-    this.navCtrl.navigateForward("store");
+
+  ngOnInit() {}
+  viewMore() {
+    this.navCtrl.navigateForward("product");
   }
-  storeDetail(id) {
-    this.gpi.storeID = id;
-    this.navCtrl.navigateForward("/store-detail");
+  viewMoreCategory() {
+    this.navCtrl.navigateForward("/grocery-category");
   }
   subcategory(id) {
     this.gpi.catId = id;
-    this.navCtrl.navigateForward("store");
+    this.navCtrl.navigateForward("/category-detail");
   }
-  getCategory() {
-    this.navCtrl.navigateForward("/grocery-category");
+
+  cart() {
+    if (this.cartData.length == 0) {
+      this.util.presentToast("cart is empty");
+    } else {
+      this.gpi.cartData = this.cartData;
+      this.navCtrl.navigateForward("/grocery-cart");
+    }
+  }
+  ionViewWillLeave() {
+    this.gpi.cartData = this.cartData;
+  }
+  storeDetail(id) {
+    this.gpi.itemId = id;
+    this.navCtrl.navigateForward("/product-detail");
   }
 }

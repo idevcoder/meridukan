@@ -28,7 +28,7 @@
             </ion-row>
         </div>
 
-        <agm-map [latitude]="agmMap.lat" [longitude]="agmMap.lng">
+        <agm-map [latitude]="agmMap.lat" [longitude]="agmMap.lng" [zoom]="agmMap.zoom">
 
             <agm-marker [markerDraggable]="true" (dragEnd)="centerChange($event)" [latitude]="agmMap.lat" [longitude]="agmMap.lng">
 
